@@ -7,4 +7,4 @@ encryption = "gpg"
     passphrase = {{ $passphrase | quote }}
 [gpg]
     symmetric = true
-    args = ["--batch", "--passphrase", {{ $passphrase | quote }}, "--no-symkey-cache"]
+    args = ["--quiet", "--batch", "--passphrase", {{ $passphrase | quote }}, "--no-symkey-cache"]
