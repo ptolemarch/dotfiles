@@ -1,0 +1,7 @@
+# vim
+*~
+
+# vim uses the first for buffers with no filename,
+# and the second for buffers with a filename
+.sw?
+.*.sw?

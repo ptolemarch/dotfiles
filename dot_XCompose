@@ -1,0 +1,61 @@
+include "%L"
+
+#== NOTE
+# Okay, so this sucks:
+# If you have
+#   <A> <B> <C> : "Y"
+# you can't also have
+#   <A> <B> : "X"
+# regardless of ordering
+# 'Cuz there needs to be an argument after B.
+#--
+
+# but you *can* do this:
+# <Q> : "L"  # who needs a Q key? and I can never have enough of L
+
+# https://en.wikipedia.org/wiki/List_of_logic_symbols
+<Multi_key> <colon> <A>	: "∀"  U2200  # FOR ALL
+<Multi_key> <colon> <E>	: "∃"  U2203  # THERE EXISTS
+<Multi_key> <colon> <slash> <E>	: "∄"  U2204  # THERE DOES NOT EXIST
+<Multi_key> <0> <plus>	: "⊕"  U2295  # CIRCLED PLUS
+<Multi_key> <underscore> <v>	: "⊻"  U22bb  # XOR
+<Multi_key> <leftarrow> <minus> <rightarrow>	: "↔"  U2194  # LEFT RIGHT ARROW
+<Multi_key> <leftarrow> <equal> <rightarrow>	: "⇔"  U21d4  # LEFT RIGHT DOUBLE ARROW
+<Multi_key> <less> <minus> <greater>	: "↔"  U2194  # LEFT RIGHT ARROW
+<Multi_key> <less> <equal> <greater>	: "⇔"  U21d4  # LEFT RIGHT DOUBLE ARROW
+<Multi_key> <underscore> <equal>	: "≡"  U2261  # IDENTICAL TO
+<Multi_key> <slash> <underscore> <equal>	: "≢"  U2262  # NOT IDENTICAL TO
+
+<Multi_key> <slash> <0>	: "∅"  U2205  # EMPTY SET
+
+<Multi_key> <slash> <equal>  	: "≠"  U2260  # NOT EQUAL TO
+
+<Multi_key> <tilde> <tilde>	: "≈"  U2248  # ALMOST EQUAL TO
+<Multi_key> <slash> <tilde> <tilde> 	: "≉"  U2249  # NOT ALMOST EQUAL TO
+
+<Multi_key> <slash> <less>	: "≮"  U226E  # NOT LESS-THAN
+<Multi_key> <underscore> <less>	: "≤"  U2264  # LESS-THAN OR EQUAL TO
+<Multi_key> <slash> <underscore> <less>	: "≰"  U2270  # NEITHER LESS-THAN NOR EQUAL TO
+
+<Multi_key> <slash> <greater>	: "≯"  U226F  # NOT GREATER-THAN
+<Multi_key> <underscore> <greater>	: "≥"  U2265  # GREATER-THAN OR EQUAL TO
+<Multi_key> <slash> <underscore> <greater>	: "≱"  U2271  # NEITHER GREATER-THAN NOR EQUAL TO
+
+<Multi_key> <slash> <A>	: "∆"  U2206  # INCREMENT
+<Multi_key> <slash> <V>	: "∇"  U2207  # NABLA
+
+<Multi_key> <X> <P>	: "☧"  U2627  # CHI RHO
+<Multi_key> <at> <R> <A> <D>	: "☢"  U2622  # RADIOACTIVE SIGN
+<Multi_key> <at> <B> <I> <O>	: "☣"  U2623  # BIOHAZARD SIGN
+<Multi_key> <at> <S> <X> <B>	: "☠"  U2620  # SKULL AND CROSSBONES
+
+<Multi_key> <bracketleft> <bracketright> <0>	: "⚀"  U2680  # DIE FACE-1
+<Multi_key> <bracketleft> <bracketright> <1>	: "⚀"  U2680  # DIE FACE-1
+<Multi_key> <bracketleft> <bracketright> <2>	: "⚁"  U2681  # DIE FACE-2
+<Multi_key> <bracketleft> <bracketright> <3>	: "⚂"  U2682  # DIE FACE-3
+<Multi_key> <bracketleft> <bracketright> <4>	: "⚃"  U2683  # DIE FACE-4
+<Multi_key> <bracketleft> <bracketright> <5>	: "⚄"  U2684  # DIE FACE-5
+<Multi_key> <bracketleft> <bracketright> <6>	: "⚅"  U2685  # DIE FACE-6
+
+
+# vim: ts=50 noet

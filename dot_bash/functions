@@ -1,0 +1,344 @@
+#! bash
+
+export __PTOLEMARCH_FUNCTIONS_LOADED__=YESSIR
+
+# ============================================================================
+# Helpers
+# ----------------------------------------------------------------------------
+_self()
+{
+    local funcname script func
+
+    for funcname in "${FUNCNAME[@]}"; do
+        if [[ "$funcname" =~ ^_ ]]; then
+            :
+        else
+            func="$funcname"
+            break
+        fi
+    done
+
+    if [[ "$0" == "-bash" ]]; then
+        script="$0"
+    else
+        script="$(basename "$0")"
+    fi
+
+    if [[ -z "$func" || "$func" == "main" ]]; then
+        echo -n "$script"
+    else
+        echo -n "$func"
+    fi
+}
+
+_warn()
+{
+    echo "$(_self):" "$@" > /dev/stderr
+}
+_die()
+{
+    local code="$1"; shift
+    _warn "$@"
+    exit $code
+}
+
+_now()
+{
+    date +%s
+}
+
+_later()
+{
+    date -j -f \
+        "%Y %m/%d %H:%M:%S %z" \
+      "2014 02/11 00:00:00 -0600" \
+      +%s
+}
+
+
+# ============================================================================
+# Predicates
+# ----------------------------------------------------------------------------
+am_case_sensitive()
+{
+    if [[ -z "$TMPDIR" || ! -d "$TMPDIR" || ! -w "$TMPDIR" ]]; then
+        TMPDIR="$(mktemp -d)"
+        had_to_make_my_own_tmpdir=1
+    fi
+
+    local file_one="InSeNsItIvE"
+    local file_two="iNsEnSiTiVe"
+    file_one="$TMPDIR/$file_one.$$"
+    file_two="$TMPDIR/$file_two.$$"
+
+    if [[ -f "$file_one" ]] || [[ -f "$file_two" ]]; then
+        rm -f "$file_one" "$file_two" \
+            || _warn "can't pre-delete temp '$file_one' & '$file_two'"
+    fi
+    if [[ -f "$file_one" ]]; then
+        _warn "file one exists before touch: '$file_one'"
+    fi
+    if [[ -f "$file_two" ]]; then
+        _warn "file two exists before touch: '$file_one'"
+    fi
+
+    touch "$file_one" || _warn "can't touch '$file_one'"
+    if [[ -f "$file_one" ]]; then
+        :
+    else
+        _warn "file doesn't exist after touch: '$file_one'"
+    fi
+
+    # the moment of truth: we've just created InSeNsItIvE.
+    #   Have we also created iNsEnSiTiVe?
+    if [[ -f "$file_two" ]]; then
+        # we're case insensitive
+        rm -f "$file_one" "$file_two" || _warn "can't clean up"
+        false; return
+    else
+        # we're case sensitive
+        rm -f "$file_one" "$file_two" || _warn "can't clean up"
+        true; return
+    fi
+
+    if [[ -z "$had_to_make_my_own_tmpdir" ]]; then :; else
+        rm -r "$TMPDIR" || _warn "can't clean up"
+    fi
+}
+
+# ============================================================================
+# Miscellany
+# ----------------------------------------------------------------------------
+# what's our mountpoint? I'll bet there's a much better way
+#   of doing this...
+pwdroot()
+{
+    df . | tail -n 1 | perl -pe 's{^.*\s/}{/}'
+}
+
+r_m()
+{
+    local mountpoint="$1"; shift
+    if [[ -e "$mountpoint" ]]; then :; else
+        mountpoint=$(pwdroot)
+    fi
+    if [[ -e "$mountpoint" ]]; then :; else  # still...
+        _warn "can't determine current mount. Cravenly quitting"
+        return 1
+    fi
+
+    if [[ $mountpoint == '/' ]]; then
+        _warn "cravenly refusing to clean up root ('$mountpoint')"
+        return 1
+    fi
+
+    _warn "cleaning up '$mountpoint'"
+    read -p "Are you sure? " -n 1 -r
+    echo # new line
+    if [[ $REPLY =~ ^[Yy]$ ]]; then
+        pushd "$mountpoint"
+        rm -rfv .Spotlight-V100 .Trashes .fseventsd
+        find . -name '._*' -print -delete
+        find . -name '.DS_Store' -print -delete
+        popd
+    else
+        _warn "okay. Skipping"
+    fi
+}
+
+devhost()
+{
+    local n=${1:-4}; shift  # default to n04.devhost
+#    local devhost="n04.devhost"
+    local devhost=$(printf 'n%02d.devhost' $n)
+
+    # open separate master connection if not open yet
+    if ssh -O check "$devhost" > /dev/null 2>&1; then :; else
+        if ssh -AfMNn "$devhost" ; then :; else 
+            _warn "unable to open master connection"
+            return 1
+        fi
+    fi
+    ssh "$devhost" "$@"
+
+    return
+}
+
+pinknoise()
+{
+    # from http://unreasonable.org/node/303
+    # see also
+    #   https://bitbucket.org/rsvp/gists/src/default/noise.sh
+    # or
+    #   https://gist.github.com/rsvp/1209835
+
+    local len='8:00:00'
+     
+    if [[ "$1" ]]; then
+        len="$1"
+    fi
+
+    # requires SoX, http://sox.sourceforge.net/
+    play \
+        -q -r 16k -c 2 -n \
+        synth "$len" pinknoise \
+        band -n 1200 200 tremolo 20 .1 \
+        < /dev/zero
+}
+
+minecraft()
+{
+    pushd "$HOME/Minecraft"
+    primusrun java -jar Minecraft.jar
+    popd
+}
+
+export _PTOLEMARCH_X11_GLOBAL_NO_REENTRY
+x11()
+{
+    if [[ -z $_PTOLEMARCH_X11_GLOBAL_NO_REENTRY ]]; then
+        export _PTOLEMARCH_X11_GLOBAL_NO_REENTRY=1
+        /usr/bin/startx > ~/.x11.out 2> ~/.x11.err
+        unset _PTOLEMARCH_X11_GLOBAL_NO_REENTRY
+    fi
+}
+
+sa()
+{
+    local key="$1"; shift
+
+    local key_dir="$HOME/.ssh/"
+    local key_suffix=_rsa
+
+    local -A key_alias_for=(
+        [devhost]=liquidweb_devhost_dhand
+        [devtools]=liquidweb_devtools_dhand
+        [misc]=liquidweb_misc_dhand
+        [github]=github_ptolemarch
+        [heroku]=heroku_ptolemarch
+        [sourceforge]=sourceforge_ptolemarch
+        [eccenter]=eccenter_wifi_root
+    )
+    [[ "${key_alias_for[$key]}" ]] && key="${key_alias_for[$key]}" 
+
+    ssh-add "$key_dir$key$key_suffix"
+}
+
+emu()
+{
+    ## oops! localizing - Doesn't work until Bash 4.4
+    ##  So right now, I won't be setting -x either, since it'll take effect
+    ##   globally, for the whole shell.
+    # makes it so the next line has only local effect
+    #local -
+    # echo commands right before they're run
+    #set -x
+
+    sudo -v \
+        || return 42
+
+    # it might actually be better to do: sudo bash <<"EOF"
+    #  because it feels a little silly to be calling sudo over and over
+
+    [[ $1 ]] || sudo emaint sync -a \
+        || return 43
+
+    # who
+    # why
+    # where
+    # when
+    # what
+    sudo emerge \
+        --verbose --ask \
+        --newuse --newrepo \
+        --deep --with-bdeps=y --complete-graph=y --backtrack=30 \
+        --autounmask-write=n \
+        --update @world \
+        || return 44
+
+    sudo etc-update \
+        || return 45
+}
+
+CxL()
+{
+    for numeric_candidate in "$1" "$2" ; do
+        numeric_regex='^[0-9]+$'
+        if [[ $numeric_candidate =~ $numeric_regex ]]; then :; else
+            echo "$COLUMNS x $LINES"
+            return
+        fi
+    done
+
+    local columns="$1"
+    local lines="$2"
+
+    # if both are numbers, resize xterm
+    # using dtterm-style "extended window control sequences"
+    # search for allowWindowOps in xterm(1)
+    echo -ne "\e[8;${lines};${columns}t"
+    # builtin variables $COLUMNS and $LINES haven't had a chance to update yet
+    echo "$columns x $lines (resized)"
+}
+
+# had to go back to vpnc
+#vpn()
+#{
+#    if
+#        (nmcli connection show --active | grep -E '^vpn0 ' > /dev/null) \
+#     && (nmcli connection show --active | grep -E '^liquid ' > /dev/null)
+#    then
+#        sudo nmcli connection down liquid
+#    else
+#        sudo nmcli --ask connection up liquid
+#    fi
+#}
+
+cql()
+{
+    local keyspace=cloudsites
+    local default_host=67.227.198.122
+    host=${1:-$default_host}
+    local -A version_for=(
+        [$default_host]=3.4.0
+    )
+    docker run -it cassandra cqlsh --cqlversion "${version_for[$host]}" -k "$keyspace" "$host"
+}
+
+date()
+{
+    local tz="$1"
+
+    if [[ "$tz" == "india" ]]; then
+        shift # remove bogus "india" arg
+        TZ='Asia/Calcutta' command date "$@"
+    else
+        command date "$@"
+    fi
+}
+
+# given a directory, return the most recent file (by modification time)
+Lst()
+{
+    local dir="${1:-.}"
+    local count="${2:-1}"
+    readlink --canonicalize "$dir/$(
+        ls --reverse --sort=time --quoting-style=literal "$dir" \
+        | tail -n "$count"
+    )"
+}
+
+# copy into ^V / "paste" (e.g., menu option) buffer
+CtrlC()
+{
+    tr -d "\012" | xclip -selection clipboard
+}
+
+VimHelp()
+{
+    vim +"help $1 | only"
+}
+
+
+
+# vim:ft=sh

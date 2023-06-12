@@ -1,0 +1,9 @@
+last updated 2018 7/22 21;8
+
+To update:
+
+	wget http://www.drchip.org/astronaut/vim/vbafiles/netrw.vba.gz
+	gunzip netrw.vba.gz
+	rm ~/.vim/bundle/netrw' 
+	vim netrw.vba +':UseVimball ~/.vim/bundle/netrw' +:quit
+	rm netrw.vba

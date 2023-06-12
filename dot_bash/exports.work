@@ -1,0 +1,2 @@
+PATH="$PATH:~/Work/picard/bin"
+export AWS_DEFAULT_PROFILE=picardbot

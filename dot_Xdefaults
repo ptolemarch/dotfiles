@@ -1,0 +1,277 @@
+! --- ~/.Xresources ------------------------------------------------------------
+!
+! After modifying the contents of this file, to apply to the current X session,
+! use: xrdb(1):
+! 	xrdb -merge $HOME/.Xresources
+!
+! ------------------------------------------------------------------------------
+! ------------------------------------------------------------------------------
+! ------------------------------------------------------------------------------
+
+!-- generated with 4bit Terminal Color Scheme Designer -----------------------
+!   http://ciembor.github.com/4bit
+
+! --- special colors ---
+*background: #0d1926
+*foreground: #d9e6f2
+
+! --- standard colors ---
+! black
+*color0: #000000
+
+! bright_black
+*color8: #262626
+
+! red
+*color1: #e44e5a
+
+! bright_red
+*color9: #f2a6ad
+
+! green
+*color2: #5ae44e
+
+! bright_green
+*color10: #adf2a6
+
+! yellow
+*color3: #e4d84e
+
+! bright_yellow
+*color11: #f2eba6
+
+! blue
+*color4: #4e5ae4
+
+! bright_blue
+*color12: #a6adf2
+
+! magenta
+*color5: #d84ee4
+
+! bright_magenta
+*color13: #eba6f2
+
+! cyan
+*color6: #4ee4d8
+
+! bright_cyan
+*color14: #a6f2eb
+
+! white
+*color7: #d9d9d9
+
+! bright_white
+*color15: #ffffff
+
+!-- Xscreensaver -------------------------------------------------------------
+xscreensaver*newLoginCommand: '/bin/true'
+
+!-- Ida ----------------------------------------------------------------------
+Ida*background: white
+
+!-- Xterm --------------------------------------------------------------------
+! defaults seem to be set at
+!  /usr/share/X11/app-defaults/XTerm
+! and
+!  /usr/share/X11/app-defaults/XTerm-color
+! An interesting reference: http://www.in-ulm.de/~mascheck/X11/XTerm
+xterm*termName: xterm-256color
+xterm*locale: false
+xterm.vt100.utf8: always
+xterm.vt100.utf8Fonts: always
+! I thought this might be good? NO. It really breaks shit.
+!xterm*eightBitControl: true
+
+!! Xterm scrolling
+!! not sure allowScrollLock will even work
+xterm*allowScrollLock: true
+! OMG THIS LETS ME SCROLL IN VIM USING THE SCROLLWHEEL
+xterm*alternateScroll: true
+!! not sure what "asynchronous" scrolling is, but let us try it
+xterm*multiScroll: true
+xterm*fastScroll: true
+xterm*scrollKey: true
+xterm*scrollTtyOutput: false
+xterm*saveLines: 8192
+
+! Xterm cursor
+xterm*cursorBlink: true
+xterm*cursorUnderLine: true
+
+! Xterm selection
+xterm*cutNewLine: true
+
+! WARNING REGARDING REGEXES:
+! backslash much be escaped with its own backslash!
+! slash must ALSO be escaped with a backslash!
+
+! ON 2 CLICKS:
+! a single number, a single word, a LW subaccnt uniq_id, or all the punctuation you can eat
+!
+! number:
+!        [[:digit:]]*;([0-5]?[0-9])(,[0-5]?[0-9])*|([0-5]?[0-9],)*([0-5]?[0-9]);([0-5]?[0-9])(,[0-5]?[0-9])*|[[:digit:]]{1,3}([[:digit:]]{3}[,_])*(\.[[:digit:]]{2})?|[+-]?[[:digit:]]+(\.[[:digit:]]+)?([eE][+-]?[[:digit:]]+)?|0[xX][[:xdigit:]]+
+!
+!   sexagesimal number:
+!        [[:digit:]]*;([0-5]?[0-9])(,[0-5]?[0-9])*|([0-5]?[0-9],)*([0-5]?[0-9]);([0-5]?[0-9])(,[0-5]?[0-9])*
+!     (w/decimal integer):
+!        [[:digit:]]*;([0-5]?[0-9])(,[0-5]?[0-9])*
+!     (w/sexagesimal integer):
+!        ([0-5]?[0-9],)*([0-5]?[0-9]);([0-5]?[0-9])(,[0-5]?[0-9])*
+!   idiomatic number:
+!        [[:digit:]]{1,3}([,_][[:digit:]]{3})*(\.[[:digit:]]{2})?
+!   scientific decimal float:
+!        [+-]?[[:digit:]]+(\.[[:digit:]]+)?([eE][+-]?[[:digit:]]+)?
+!     simple decimal float:
+!        [+-]?[[:digit:]]+(\.[[:digit:]]+)?
+!       decimal integer:
+!        [+-]?[[:digit:]]+
+!   hex integer:
+!        (0[xX])?[[:xdigit:]]+
+!        ^-{might want to make the 0x part mandatory again?}
+!
+! word (or: Perl variable):
+!        [$@%*]?[[:alpha:]_][[:alnum:]_]+
+!
+! subaccnt uniq_id:
+!  (see LW::Input::Validator::billing)
+!        [A-HJ-NP-Z0-9a-hj-np-z]{6}
+!
+! punctuation:
+!        [[:punct:]]+
+!
+! God, I love this regex.
+xterm*on2Clicks: regex [[:digit:]]*;([0-5]?[0-9])(,[0-5]?[0-9])*|([0-5]?[0-9],)*([0-5]?[0-9]);([0-5]?[0-9])(,[0-5]?[0-9])*|[[:digit:]]{1,3}([,_][[:digit:]]{3})*(\\.[[:digit:]]{2})?|[+-]?[[:digit:]]+(\\.[[:digit:]]+)?([eE][+-]?[[:digit:]]+)?|(0[xX])?[[:xdigit:]]+|[$@%*]?[[:alpha:]_][[:alnum:]_]+|[A-HJ-NP-Z0-9a-hj-np-z]{6}|[[:punct:]]+
+
+! ON 3 CLICKS:
+! an email address, URL, or filename
+! (quite simplified: only needs to be useful for highlighting with clicks)
+!
+!
+!   Just for fun: https://en.wikipedia.org/wiki/Email_address#Valid_email_addresses
+!            and: http://haacked.com/archive/2007/08/21/i-knew-how-to-validate-an-email-address-until-i.aspx/
+!
+! email adddress: (modified from the latter above)
+!
+!        [[:alnum:]!#$%&*+/=?^_`{|}~.-]+@[[:alnum:]][[:alnum:]-]*[[:alnum:]](\.[[:alnum:]][[:alnum:]-]*[[:alnum:]])*
+!
+!   local part: (not allowing qcontent, nor backslashes.)
+!        [[:alnum:]!#$%&*+/=?^_`{|}~.-]+
+!   hostname:
+!        [[:alnum:]][[:alnum:]-]*[[:alnum:]](\.[[:alnum:]][[:alnum:]-]*[[:alnum:]])*
+!
+!
+!   scheme://user:pass@host:8192/path/file.ext?query#fragment
+!
+! URL: (adapted from https://www.ietf.org/rfc/rfc3986.txt)
+!
+!        [[:alnum:].+-]+://(([:[:alnum:]!$&()*+,;=~._-]|%[[:xdigit:]]{2})+@)?([[:alnum:]][[:alnum:]-]*[[:alnum:]](\.[[:alnum:]][[:alnum:]-]*[[:alnum:]])*|\[?([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]|[[:xdigit:]:]+)\]?)(:[[:digit:]]+)?(/([/@:[:alnum:]!$&()*+,;=~._-]|%[[:xdigit:]]{2})+)?(?([?/@:[:alnum:]!$&()*+,;=~._-]|%[[:xdigit:]]{2})*)?(#([?/@:[:alnum:]!$&()*+,;=~._-]|%[[:xdigit:]]{2})*)?
+!
+!   scheme:
+!        [[:alnum:].+-]+://
+!   user:pass:
+!        ([:[:alnum:]!$&()*+,;=~._-]|%[[:xdigit:]]{2})+
+!   host:
+!        [[:alnum:]][[:alnum:]-]*[[:alnum:]](\.[[:alnum:]][[:alnum:]-]*[[:alnum:]])*|\[?([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]|[[:xdigit:]:]+)\]?
+!     hostname:
+!        [[:alnum:]][[:alnum:]-]*[[:alnum:]](\.[[:alnum:]][[:alnum:]-]*[[:alnum:]])*
+!     ipv4: (ridiculously precise)
+!        [0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]
+!     ipv6: (ridiculously sloppy)
+!        [[:xdigit:]:]+
+!
+!   port:
+!        :[[:digit:]]+
+!   path/file.ext:
+!        ([/@:[:alnum:]!$&*+,;=~._-]|%[[:xdigit:]]{2})*
+!   query:
+!        ([?/@:[:alnum:]!$&*+,;=~._-]|%[[:xdigit:]]{2})*
+!   fragment: (same as query)
+!        ([?/@:[:alnum:]!$&*+,;=~._-]|%[[:xdigit:]]{2})*
+!        
+! filename:
+!        [[:alnum:]$@#+~._-]+
+!
+!        
+xterm*on3Clicks: regex [[:alnum:].+-]+:\/\/(([:[:alnum:]!$&()*+,;=~._-]|%[[:xdigit:]]{2})+@)?([[:alnum:]]([[:alnum:]-]*[[:alnum:]])?(\\.[[:alnum:]]([[:alnum:]-]*[[:alnum:]])?)*|\\[?([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]|[[:xdigit:]:]+)\\]?)(:[[:digit:]]+)?(\/([\/@:[:alnum:]!$&*+,;=~._-]|%[[:xdigit:]]{2})*)?(\\?([?\/@:[:alnum:]!$&*+,;=~._-]|%[[:xdigit:]]{2})*)?(#([?\/@:[:alnum:]!$&*+,;=~._-]|%[[:xdigit:]]{2})*)?|[[:alnum:]$@#+~._-]+
+
+! ON 4 CLICKS:
+! from space to space
+xterm*on4Clicks: regex [[:graph:]]+
+
+! ON 5 CLICKS:
+! the whole line
+xterm*on5Clicks: line
+
+! alt-click opens highlighted text in Firefox
+xterm.vt100.translations: #override  \n\
+    Alt <Btn1Up>: exec-formatted("firefox --new-window '%t'", PRIMARY)  \n\
+    Alt <Key>K: clear-saved-lines()  \n\
+    Alt <Key>O: set-altscreen(toggle)  \n\
+    Shift Ctrl <Key>N: spawn-new-terminal()  \n\
+    Shift <Btn4Down>:scroll-back(1,line,m)  \n\
+    Shift <Btn5Down>:scroll-forw(1,line,m) \n\
+    Shift <Key>Home:scroll-back(1000,page) \n\
+    Shift <Key>End:scroll-forw(1000,page)
+
+! This seems to be causing a warning
+!    Alt <Key>P: print-immediate()  \n\
+
+! maybe also set some of these to send-signal()
+
+! Xterm printing (!)
+! I need something here for printerCommand, it looks like
+!   "a shell command to which xterm will open a pipe"
+!xterm*printerCommand:
+! And it kinda looks like I might want this set?
+!xterm*printerAutoClose: true
+xterm*printAttributes: 2
+xterm*printModeImmediate: 2
+! the above does not seem to be working yet
+
+! no internal border might be nice to try
+xterm.vt100.internalBorder: 0
+
+! XTerm bitmap font
+!xterm*font: -windows-proggyclean-medium-r-normal--13-80-96-96-c-70-iso8859-1
+xterm*font: -gnu-unifont-medium-r-normal-sans-16-160-75-75-c-80-iso10646-1
+
+! XTerm FreeType font
+! I should also set xterm*font and xterm*font{1-6} to use a better bitmap font
+xterm*renderFont: true
+
+! XTerm font face:
+! Noto Mono: lots of unicode, theoretically. Theoretically.
+!xterm*faceName: Noto Mono
+! Fira Code: What I decided upon for my website.
+xterm*faceName: Fira Code
+! DejaVu Sans Mono: apparently better Unicode than Noto Mono
+!xterm*faceName: DejaVu Sans Mono
+! Fantasque Sans Mono: less Unicode support than DejaVu
+!xterm*faceName: Fantasque Sans Mono
+! Inconsolata: No Greek
+!xterm*faceName: inconsolata for powerline
+! Meslo: not bad
+!xterm*faceName: Meslo LG L DZ for Powerline
+! Anonymous Pro: kinda hard to read, especially small
+!xterm*faceName: Anonymice Powerline
+! Source Code Pro: hardish to read, esp. small; huge line gap
+!xterm*faceName: Sauce Code Powerline
+! Liberation Mono:
+!xterm*faceName: Literation Mono Powerline
+
+! XTerm font sizes:
+! "Default"
+xterm*faceSize: 10
+! "Unreadable"
+xterm*faceSize1: 4
+! "Tiny"
+xterm*faceSize2: 7
+! "Small"
+xterm*faceSize3: 9
+! "Medium"
+xterm*faceSize4: 12
+! "Large"
+xterm*faceSize5: 16
+! "Huge"
+xterm*faceSize6: 26

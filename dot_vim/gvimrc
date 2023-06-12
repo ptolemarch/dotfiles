@@ -1,0 +1,9 @@
+set guifont=Iosevka:h15
+
+if has("gui_macvim")
+	set macligatures
+
+	" 20% transparent (80% opaque) with a 5-pixel blur
+	set transparency=20
+	set blurradius=5
+endif

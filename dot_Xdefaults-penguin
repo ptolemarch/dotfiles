@@ -1,0 +1,9 @@
+! only for hostname "penguin", by which I mean Crostini on Chromebook
+!
+! .Xdefaults-$HOSTNAME is always loaded, apparently after what's been
+! loaded by `xrdb`
+! See:
+!   https://superuser.com/questions/243914/what-is-the-difference-between-xresources-and-xdefaults
+!   https://superuser.com/a/243916
+
+xterm.vt100.selectToClipboard: true

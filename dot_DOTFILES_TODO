@@ -1,0 +1,30 @@
+# This is my todo list for my dotfiles.
+
+- Zsh
+  - prompt
+  - history
+    - in color?
+    - shared?
+  - TIMEFMT in color?
+  - key agent (ssh/gpg) where applicable
+  - GITHUB_TOKEN and HOMEBREW_GITHUB_API_TOKEN
+    (in a file managed by `yadm encrypt`/`yadm decrypt`)
+
+- nethackrc
+
+- less formatting (for man)
+- termcap to allow italics - already done in MacOS
+
+- Vim
+  - vim-plug: https://github.com/junegunn/vim-plug
+    - which would mean removing current vim-related submodules
+  - audit my own random configs
+  ? sensible: https://github.com/tpope/vim-sensible
+  - `runtime! macros/matchit.vim`
+
+? TaskWarrior
+  https://taskwarrior.org/
+  https://taskwarrior.org/docs/start.html
+
+- Android SDK
+- rewrite mkpasswd_xkcd in Raku, with great new features

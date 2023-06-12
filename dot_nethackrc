@@ -1,0 +1,543 @@
+# more information:
+#   http://www.nethack.org/v343/Guidebook.html#_TOCentry_42
+#   http://nethackwiki.com/wiki/Options
+#   http://alt.org/nethack/default.nh343rc
+
+# basic display options
+#OPTIONS=windowtype:tty
+OPTIONS=windowtype:curses
+OPTIONS=color
+OPTIONS=eight_bit_tty
+OPTIONS=silent
+OPTIONS=showrace
+OPTIONS=standout
+OPTIONS=runmode:walk
+OPTIONS=!null
+OPTIONS=timed_delay
+OPTIONS=rawio
+
+# curses options
+#OPTIONS=popup_dialog
+#OPTIONS=mouse_support
+OPTIONS=perm_invent
+OPTIONS=petattr:bi
+OPTIONS=toptenwin
+
+# game
+OPTIONS=role:Archeologist
+OPTIONS=race:Dwarf
+OPTIONS=align:lawful
+OPTIONS=gender:male
+OPTIONS=pettype:dog
+
+# names
+OPTIONS=name:Ptolemarch
+OPTIONS=dogname:Indiana
+OPTIONS=catname:Agamemnon
+OPTIONS=horsename:Trigger
+OPTIONS=fruit:Adderall
+
+## Always show windows starting from left edge of screen?
+#OPTIONS=win_edge
+
+# ######################################################################
+#  Gameplay
+# ======================================================================
+
+# not a newbie
+OPTIONS=!cmdassist
+OPTIONS=suppress_alert:3.3.1
+
+# no intro screen
+OPTIONS=!legacy
+
+# disclose at game end:
+# -inventory
+# -attributes
+# -monsters killed (ask, default no)
+# -genocides
+# -conducts (ask, default no)
+# -dungeon overview (ask, default no)
+OPTIONS=disclose:+i +a nv +g nc no
+# -show 3 top scores, 2 scores around mine, and mine
+OPTIONS=scores:3t 2a o
+
+# load bones files
+OPTIONS=bones
+
+# player behavior
+OPTIONS=pushweapon
+OPTIONS=autodig
+
+# extra care
+OPTIONS=paranoid_confirm:Confirm quit die bones attack wand-break eat Were-change pray Remove
+
+# ######################################################################
+#  Autopickup
+# ======================================================================
+
+# autopickup
+OPTIONS=autopickup
+OPTIONS=pickup_types:$"?+=!/
+AUTOPICKUP_EXCEPTION="<ration"
+
+# ######################################################################
+#  Status Line
+# ======================================================================
+
+OPTIONS=statuslines:3
+
+OPTIONS=showexp
+OPTIONS=showscore
+OPTIONS=time
+OPTIONS=mail
+OPTIONS=news
+OPTIONS=hitpointbar
+
+OPTION=statushilites:10
+
+# colors:                              attributes:
+#   white    red                         none / normal
+#   gray     orange     brown            bold
+#   black    yellow                      dim
+#            green      light-green      underline
+#            cyan       light-cyan       blink
+#            blue       light-blue       inverse
+#            magenta    light-magenta
+#
+# status fields:
+#   title (w/hitpointbar: styled as hitpoints; title ignored)
+#   strength dexterity constitution intelligence wisdom charisma
+#
+#   alignment gold
+#   hitpoints hitpoints-max HD
+#   power power-max armor-class experience-level experience
+#
+#   dungeon-level time
+#   hunger carrying-capacity condition score
+
+OPTION=hilite_status:str/up/red&underline/down/red&inverse/normal
+OPTION=hilite_status:dex/up/green&underline/down/green&inverse/normal
+OPTION=hilite_status:con/up/brown&underline/down/brown&inverse/normal
+OPTION=hilite_status:int/up/blue&underline/down/blue&inverse/normal
+OPTION=hilite_status:wis/up/cyan&underline/down/cyan&inverse/normal
+OPTION=hilite_status:cha/up/magenta&underline/down/magenta&inverse/normal
+
+OPTION=hilite_status:alignment/changed/red&blink/normal
+OPTION=hilite_status:gold/up/orange&underline/down/yellow&inverse/yellow
+
+OPTION=hilite_status:hitpoints/100%/gray
+OPTION=hilite_status:hitpoints/<100%/light-green
+OPTION=hilite_status:hitpoints/<80%/yellow
+OPTION=hilite_status:hitpoints/<60%/orange
+OPTION=hilite_status:hitpoints/<40%/red
+OPTION=hilite_status:hitpoints/<20%/red&blink
+
+OPTION=hilite_status:hitpoints-max/up/light-green&underline/down/red&inverse/normal
+OPTION=hilite_status:HD/up/light-green&underline/down/red&inverse/white
+
+OPTION=hilite_status:power/100%/gray
+OPTION=hilite_status:power/<100%/light-cyan
+OPTION=hilite_status:power/<80%/cyan
+OPTION=hilite_status:power/<60%/white
+OPTION=hilite_status:power/<40%/light-magenta
+OPTION=hilite_status:power/<20%/light-magenta&blink
+OPTION=hilite_status:power-max/up/light-cyan&underline/down/light-magenta&inverse/normal
+
+OPTION=hilite_status:armor-class/<-6/light-magenta
+OPTION=hilite_status:armor-class/-6/magenta
+OPTION=hilite_status:armor-class/-5/magenta
+OPTION=hilite_status:armor-class/-4/light-cyan
+OPTION=hilite_status:armor-class/-3/light-cyan
+OPTION=hilite_status:armor-class/-2/cyan
+OPTION=hilite_status:armor-class/-1/cyan
+OPTION=hilite_status:armor-class/=0/white
+OPTION=hilite_status:armor-class/=1/white
+OPTION=hilite_status:armor-class/=2/green
+OPTION=hilite_status:armor-class/=3/green
+OPTION=hilite_status:armor-class/=4/yellow
+OPTION=hilite_status:armor-class/=5/yellow
+OPTION=hilite_status:armor-class/=6/orange
+OPTION=hilite_status:armor-class/=7/orange
+OPTION=hilite_status:armor-class/=8/red
+OPTION=hilite_status:armor-class/=9/red
+OPTION=hilite_status:armor-class/>9/red&blink
+
+OPTION=hilite_status:experience-level/up/light-cyan&blink/down/red&blink/white
+OPTION=hilite_status:experience-points/<30%/grey
+OPTION=hilite_status:experience-points/<60%/white
+OPTION=hilite_status:experience-points/<90%/yellow
+OPTION=hilite_status:experience-points/<=100%/cyan
+
+# dungeon-level is text, e.g. "Dlvl:1"
+OPTION=hilite_status:dungeon-level/changed/white&bold/normal
+
+OPTION=hilite_status:time/normal
+
+OPTION=hilite_status:hunger/orange
+OPTION=hilite_status:carrying-capacity/magenta
+OPTION=hilite_status:condition/white&bold
+
+
+# ######################################################################
+#  Map
+# ======================================================================
+
+#OPTIONS=boulder:`
+OPTIONS=hilite_pet
+OPTIONS=hilite_pile
+OPTIONS=lit_corridor
+OPTIONS=use_inverse
+OPTIONS=use_darkgray
+
+# ######################################################################
+#  Menus
+# ======================================================================
+
+# Sort items by name. One of "none", "loot", or "full"
+OPTIONS=sortloot:full
+
+OPTIONS=extmenu
+OPTIONS=implicit_uncursed
+
+## Show item glyphs (color and symbol) in tty menus.
+#OPTION=menu_glyphs
+
+## Disable the generic item use menu (select an item to use directly
+## from inventory)
+#OPTIONS=!item_use_menu
+
+OPTIONS=menustyle:f
+
+## Colored menus. Regular expressions allowed.
+# much of this from http://alt.org/nethack/userdata/E/Eidolos/Eidolos.nh343rc
+#              also http://alt.org/nethack/userdata/i/itsblah/itsblah.nh343rc
+OPTIONS=menucolors
+
+# blessed/uncursed/cursed
+MENUCOLOR="^([0-9]+|an?|the) blessed | named.*[ (]blessed([) ]|$)"=green
+MENUCOLOR="^([0-9]+|an?|the) cursed | named.*[ (]cursed([) ]|$)"=red
+MENUCOLOR=" of holy water|named.*[ (]holy([) ]|$)"=green
+MENUCOLOR=" of unholy water|named.*[ (]unholy([) ]|$)"=red
+# b/u/c equipped
+MENUCOLOR=" \(((weapon in|wielded in other|on (right|left)) hands?|being worn)\)$"=gray&underline
+MENUCOLOR="(^([0-9]+|an?|the) blessed | named.*[ (]blessed[) ]).*\(((weapon in|wielded in other|on (right|left)) hands?|being worn)\)$"=green&underline
+MENUCOLOR="(^([0-9]+|an?|the) cursed | named.*[ (]cursed[) ]).*\(((weapon in|wielded in other|on (right|left)) hands?|being worn)\)$"=red&underline
+# b/u/c specifics
+MENUCOLOR="luckstone$"=gray&inverse
+MENUCOLOR="(^([0-9]+|an?) blessed | named.*[ (]blessed[) ])luckstone$"=green&inverse
+MENUCOLOR="(^([0-9]+|an?) cursed | named.*[ (]cursed[) ])luckstone$"=red&inverse
+
+# Things that should never go into a bag of holding
+MENUCOLOR=" bag .*holding"=magenta&inverse
+MENUCOLOR=" bag .*tricks"=magenta&inverse
+MENUCOLOR=" wand .*cancellation"=magenta&inverse
+MENUCOLOR=" wand .*cancel"=magenta&inverse
+MENUCOLOR=" !!holding"=magenta&inverse
+MENUCOLOR=" !!cancel"=magenta&inverse
+#raison d'etre
+MENUCOLOR=" Amulet of Yendor named"=magenta&blink
+# shiny things
+MENUCOLOR=" gold piece"=yellow
+MENUCOLOR=" valuable"=brown
+# soft gems
+MENUCOLOR="^([0-9]+|an?) ((un)?cursed |blessed )?(dilithium crystals?|opals?|(garnet|jasper|agate|jet|obsidian|jade|citrine|chrysoberyl|amber|amethyst|fluorite|turquoise) stones?)( named .*)?$"=brown
+# hard gems
+MENUCOLOR="^([0-9]+|an?) ((un)?cursed |blessed )?(diamonds?|rub(y|ies)|sapphires?|black opals?|emeralds?|(jacinth|topaz|aquamarine) stones?)( named .*)?$"=yellow
+# worthless glass
+MENUCOLOR="^([0-9]+|an?) ((un)?cursed |blessed )?worthless pieces? of [a-z ]+ glass$"=black
+## spell failure rates
+MENUCOLOR=" 0%"=white
+MENUCOLOR=" [1-9]%"=cyan
+MENUCOLOR=" [12][0-9]%"=cyan
+MENUCOLOR=" [3-6][0-9]%"=yellow
+MENUCOLOR=" 7[0-5]%"=yellow
+MENUCOLOR=" 7[6-9]%"=orange
+MENUCOLOR=" 8[0-9]%"=orange
+MENUCOLOR=" 9[0-9]%"=red&bold
+MENUCOLOR=" 100%"=black
+## #enhance manu
+# normal
+#  * Line 142: Unknown color 'none'.
+MENUCOLOR="^ +[a-z -]+ +\[(Unskilled|Basic|Skilled|Expert|Master|Grand Master)\]$"=no-color&none
+# ready to enhance
+#   Doesn't work; NAO menucolors (questionably) patched to make '^[a-z] - '
+#   not part of the string to be matched. Maybe should counter-patch that.
+MENUCOLOR="^ *[a-z] - +[a-z -]+ +\[(Unskilled|Basic|Skilled|Expert|Master|Grand Master)\]$"=cyan&underline
+# enhanceable if more skill slots
+MENUCOLOR="^ +\* +[a-z -]+ +\[(Unskilled|Basic|Skilled|Expert|Master|Grand Master)\]$"=cyan
+# ehnanceable if more potential
+MENUCOLOR="^ +# +[a-z -]+ +\[(Unskilled|Basic|Skilled|Expert|Master|Grand Master)\]$"=yellow
+
+
+# ######################################################################
+#  Messages
+# ======================================================================
+
+# message window (^P)
+OPTIONS=msg_window:reversed
+OPTIONS=msghistory:100
+
+# Messagetype patch: http://bilious.alt.org/?397
+# Uses globbing, unless you set OPTIONS=msgtype_regex
+#   hide  = hide the message
+#   norep = don't repeat the message
+#   stop  = always prompt for -more-
+MSGTYPE=hide "You displaced .*"				# displacing pets
+MSGTYPE=hide "You swap places with .*"			# displacing pets
+MSGTYPE=hide "With great effort you move the boulder."	# boulder pushing
+MSGTYPE=hide ".* begins to glow brilliantly!"		# Sunsword (wielding)
+MSGTYPE=hide ".* stops glowing."			# Sunsword (unwielding)
+
+# pet promotion :-)
+MSGTYPE=stop ".* grows up into .*"
+# pet death :-(
+MSGTYPE=stop ".* have a sad feeling for a moment, then it passes."
+# don't dig into shop walls
+MSGTYPE=stop ".* seems too hard to .*"
+
+# the rest of MSGTYPE mostly taken from
+#   http://alt.org/nethack/userdata/s/stth/stth.nh343rc
+# amulet of strangulation
+MSGTYPE=stop "It constricts your throat!"
+MSGTYPE=stop "You find it hard to breathe."
+MSGTYPE=stop "Your .* is becoming constricted."
+MSGTYPE=stop "You're gasping for air."
+MSGTYPE=stop "Your blood is having trouble reaching your brain."
+MSGTYPE=stop "You can no longer breathe."
+MSGTYPE=stop "The pressure on your .* increases."
+MSGTYPE=stop "You're turning blue."
+MSGTYPE=stop "Your consciousness is fading."
+MSGTYPE=stop "You suffocate."
+
+# (potential) drowning attack
+MSGTYPE=stop "The couatl swings itself around you!"
+MSGTYPE=stop "The electric eel swings itself around you!"
+MSGTYPE=stop "The giant eel swings itself around you!"
+MSGTYPE=stop "The kraken swings itself around you!"
+MSGTYPE=stop "The python grabs you!"
+
+# food poisoning
+MSGTYPE=stop "Ulch - that .* was tainted.*!"
+
+# hunger
+MSGTYPE=stop "You feel hungry."
+MSGTYPE=stop "You are beginning to feel hungry."
+MSGTYPE=stop "You are getting the munchies."                                    #  hallu
+MSGTYPE=stop "You feel weak now."
+MSGTYPE=stop "You still have the munchies."                                     #  hallu
+MSGTYPE=stop "You feel weak."
+MSGTYPE=stop "You are beginning to feel weak."
+MSGTYPE=stop "The munchies are interfering with your motor capabilities."       #  hallu
+MSGTYPE=stop ".* needs food, badly!"
+MSGTYPE=stop "You only feel hungry now."
+MSGTYPE=stop "You now have a lesser case of the munchies."                      #  hallu
+MSGTYPE=stop "You faint from lack of food."
+MSGTYPE=stop "You regain consciousness."
+MSGTYPE=stop "You die from starvation."
+MSGTYPE=stop "You die from hunger and exhaustion."
+
+# illness
+MSGTYPE=stop "You feel deathly sick."
+MSGTYPE=stop "You feel even worse."
+MSGTYPE=stop "You feel much worse."
+MSGTYPE=stop "You die from your illness."
+
+# (potential) inventory cursing
+MSGTYPE=stop "You feel a malignant aura surround the magic-absorbing blade."
+MSGTYPE=stop "You feel a malignant aura surround you."
+
+# mind flayer
+MSGTYPE=stop "You sense a faint wave of psychic energy."
+MSGTYPE=stop ".* concentrates."
+MSGTYPE=stop "A wave of psychic energy pours over you!"
+MSGTYPE=stop "It locks on to your .*!"
+MSGTYPE=stop ".* tentacles suck you!"
+MSGTYPE=stop "Your helmet blocks the attack to your head."
+MSGTYPE=stop "You don't seem harmed."
+MSGTYPE=stop "Your brain is eaten!"
+MSGTYPE=stop "Your last thought fades away."
+MSGTYPE=stop "Unfortunately your brain is still gone."
+
+# near-death
+MSGTYPE=stop "You hear the howling of the CwnAnnwn..."
+MSGTYPE=stop ".*, your life force is running out."
+MSGTYPE=stop ".*, all your powers will be lost..."
+MSGTYPE=stop "You hear the wailing of the Banshee..."
+MSGTYPE=stop ".* is about to die."
+
+# skill training
+MSGTYPE=stop "You feel more confident in your .*skills."
+MSGTYPE=stop "You are now more skilled in .*."
+MSGTYPE=stop "You are now most skilled in .*."
+
+# sliming
+MSGTYPE=stop "You don't feel very well."
+MSGTYPE=stop "You are turning a little green."
+MSGTYPE=stop "Your limbs are getting oozy."
+MSGTYPE=stop "Your skin begins to peel away."
+MSGTYPE=stop "You are turning into a green slime."
+MSGTYPE=stop "You are turning into .*."                                  #  hallu
+MSGTYPE=stop "You have become a green slime."
+MSGTYPE=stop "You have become .*."                                       #  hallu
+
+# stoning
+MSGTYPE=stop "You are slowing down."
+MSGTYPE=stop "Your limbs are stiffening."
+MSGTYPE=stop "Your limbs have turned to stone."
+MSGTYPE=stop "You have turned to stone."
+MSGTYPE=stop "You are a statue."
+
+# vibrating square
+MSGTYPE=stop "You feel a strange vibration beneath .*."
+MSGTYPE=stop "You feel a strange vibration under your .*."
+
+# vomiting
+MSGTYPE=stop "You are feeling mildly nauseated."
+MSGTYPE=stop "You feel slightly confused."
+MSGTYPE=stop "You can't seem to think straight."
+MSGTYPE=stop "You feel incredibly sick."
+MSGTYPE=stop "You suddenly vomit!"
+
+# Wizard of Yendor
+MSGTYPE=stop "You feel vaguely nervous."
+MSGTYPE=stop "You notice a black glow surrounding you."
+MSGTYPE=stop "A voice booms out..."
+
+#--- various properties (work in progress)
+
+# - aggravate monster
+MSGTYPE=stop "You feel less attractive."                                #  sit.c        gremlin
+
+# - automatic searching
+MSGTYPE=stop "You feel perceptive!"                                     #  attrib.c     level++
+MSGTYPE=stop "You feel less perceptive!"                                #  attrib.c     level--
+MSGTYPE=stop "You feel unaware!"                                        #  attrib.c     level-- (monk)
+
+# - charisma
+MSGTYPE=stop "You feel charismatic!"                                    #  attrib.c     a_cha++
+MSGTYPE=stop "You feel very charismatic!"                               #  attrib.c     a_cha++ (>1)
+MSGTYPE=stop "You feel repulsive!"                                      #  attrib.c     a_cha--
+MSGTYPE=stop "You feel very repulsive!"                                 #  attrib.c     a_cha-- (>1)
+
+# - cold resistance
+MSGTYPE=stop "You feel warm!"                                           #  attrib.c     level++
+MSGTYPE=stop "You feel cooler!"                                         #  attrib.c     level--
+MSGTYPE=stop "You feel full of hot air."                                #  eat.c        eat_mon
+MSGTYPE=stop "You feel cooler."                                         #  sit.c        gremlin
+
+# - constitution
+MSGTYPE=stop "You feel tough!"                                          #  attrib.c     a_con++
+MSGTYPE=stop "You feel very tough!"                                     #  attrib.c     a_con++ (>1)
+MSGTYPE=stop "You feel fragile!"                                        #  attrib.c     a_con--
+MSGTYPE=stop "You feel very fragile!"                                   #  attrib.c     a_con-- (>1)
+MSGTYPE=stop "You must be leading a healthy life-style."                #  attrib.c     exe_con
+MSGTYPE=stop "You haven't been watching your health."                   #  attrib.c     abu_con
+
+# - dexterity
+MSGTYPE=stop "You feel agile!"                                          #  attrib.c     a_dex++
+MSGTYPE=stop "You feel very agile!"                                     #  attrib.c     a_dex++ (>1)
+MSGTYPE=stop "You feel clumsy!"                                         #  attrib.c     a_dex--
+MSGTYPE=stop "You feel very clumsy!"                                    #  attrib.c     a_dex-- (>1)
+MSGTYPE=stop "You must have been working on your reflexes."             #  attrib.c     exe_dex
+MSGTYPE=stop "You haven't been working on reflexes lately."             #  attrib.c     abu_dex
+
+# - disintegration resistance
+MSGTYPE=stop "You feel very firm."                                      #  eat.c        eat_mon
+MSGTYPE=stop "You feel totally together, man."                          #  eat.c        eat_mon (hallu)
+
+# - fire resistance
+MSGTYPE=stop "You feel cool!"                                           #  attrib.c     level++
+MSGTYPE=stop "You feel warmer!"                                         #  attrib.c     level--
+MSGTYPE=stop "You feel a momentary chill."                              #  eat.c        eat_mon
+MSGTYPE=stop "You be chillin'."                                         #  eat.c        eat_mon (hallu)
+MSGTYPE=stop "You feel warmer."                                         #  sit.c        gremlin
+
+# - intelligence
+MSGTYPE=stop "You feel smart!"                                          #  attrib.c     a_int++
+MSGTYPE=stop "You feel very smart!"                                     #  attrib.c     a_int++ (>1)
+MSGTYPE=stop "You feel stupid!"                                         #  attrib.c     a_int--
+MSGTYPE=stop "You feel very stupid!"                                    #  attrib.c     a_int-- (>1)
+
+# - invisibility
+MSGTYPE=stop "You feel paranoid."                                       #  sit.c        gremlin
+
+# - lycanthropy
+MSGTYPE=stop "You feel feverish."                                       #  mhitu.c      mon_hit (werefoo)
+MSGTYPE=stop "You feel purified."                                       #  were.c       diverse
+
+# - poison resistance
+MSGTYPE=stop "You feel healthy!"                                        #  attrib.c     level++
+MSGTYPE=stop "You feel less healthy!"                                   #  attrib.c     level--
+MSGTYPE=stop "You feel hardy!"                                          #  attrib.c     level++ (tourist)
+MSGTYPE=stop "You feel less hardy!"                                     #  attrib.c     level-- (tourist)
+MSGTYPE=stop "You feel healthy."                                        #  eat.c        eat_mon
+MSGTYPE=stop "You feel especially healthy."                             #  eat.c        eat_mon (already)
+MSGTYPE=stop "You feel a little sick!"                                  #  sit.c        gremlin
+
+# - protection
+MSGTYPE=stop "You feel vulnerable."                                     #  sit.c        gremlin
+
+# - see invisible
+MSGTYPE=stop "You thought you saw something!"                           #  sit.c        gremlin
+MSGTYPE=stop "You tawt you taw a puttie tat!"                           #  sit.c        gremlin (hallu)
+MSGTYPE=stop "Your vision becomes clear."                               #  sit.c        throne
+
+# - shock resistance
+MSGTYPE=stop "You feel insulated!"                                      #  attrib.c     level++
+MSGTYPE=stop "You feel conductive!"                                     #  attrib.c     level--
+MSGTYPE=stop "Your health currently feels amplified!"                   #  eat.c        eat_mon
+MSGTYPE=stop "You feel grounded in reality."                            #  eat.c        eat_mon (hallu)
+
+# - sleep resistance
+MSGTYPE=stop "You feel awake!"                                          #  attrib.c     level++
+MSGTYPE=stop "You feel tired!"                                          #  attrib.c     level--
+MSGTYPE=stop "You feel wide awake."                                     #  eat.c        eat_mon
+
+# - speed
+MSGTYPE=stop "You feel quick!"                                          #  attrib.c     level++
+MSGTYPE=stop "You feel slow!"                                           #  attrib.c     level--
+MSGTYPE=stop "You seem faster."                                         #  eat.c        eat_mon (Q)
+MSGTYPE=stop "You seem slower."                                         #  eat.c        eat_mon (Q)
+MSGTYPE=stop "You feel slower."                                         #  sit.c        gremlin
+
+# - stealth
+MSGTYPE=stop "You feel stealthy!"                                       #  attrib.c     level++
+MSGTYPE=stop "You feel less stealthy!"                                  #  attrib.c     level--
+MSGTYPE=stop "You feel clumsy."                                         #  sit.c        gremlin
+
+# - strength
+MSGTYPE=stop "You feel strong!"                                         #  attrib.c     a_str++
+MSGTYPE=stop "You feel very strong!"                                    #  attrib.c     a_str++ (>1)
+MSGTYPE=stop "You feel weak!"                                           #  attrib.c     a_str--
+MSGTYPE=stop "You feel very weak!"                                      #  attrib.c     a_str-- (>1)
+MSGTYPE=stop "You must have been exercising."                           #  attrib.c     exe_str
+MSGTYPE=stop "You must have been abusing your body."                    #  attrib.c     abu_str
+
+# - telepathy
+MSGTYPE=stop "You feel a strange mental acuity."                        #  eat.c        eat_mon
+MSGTYPE=stop "You feel in touch with the cosmos."                       #  eat.c        eat_mon (hallu)
+MSGTYPE=stop "Your senses fail!"                                        #  sit.c        gremlin
+
+# - teleportitis
+MSGTYPE=stop "You feel very jumpy."                                     #  eat.c        eat_mon
+MSGTYPE=stop "You feel diffuse."                                        #  eat.c        eat_mon (hallu)
+MSGTYPE=stop "You feel less jumpy."                                     #  sit.c        gremlin
+
+# - teleport control
+MSGTYPE=stop "You feel controlled!"                                     #  attrib.c     level++
+MSGTYPE=stop "You feel uncontrolled!"                                   #  attrib.c     level--
+MSGTYPE=stop "You feel in control of yourself."                         #  eat.c        eat_mon
+MSGTYPE=stop "You feel centered in your personal space."                #  eat.c        eat_mon (hallu)
+
+# - warning
+MSGTYPE=stop "You feel sensitive!"                                      #  attrib.c     level++
+MSGTYPE=stop "You feel less sensitive!"                                 #  attrib.c     level--
+
+# - wisdom
+MSGTYPE=stop "You feel wise!"                                           #  attrib.c     a_wis++
+MSGTYPE=stop "You feel very wise!"                                      #  attrib.c     a_wis++ (>1)
+MSGTYPE=stop "You feel foolish!"                                        #  attrib.c     a_wis--
+MSGTYPE=stop "You feel very foolish!"                                   #  attrib.c     a_wis-- (>1)
+MSGTYPE=stop "You must have been very observant."                       #  attrib.c     exe_wis
+MSGTYPE=stop "You haven't been paying attention."                       #  attrib.c     abu_wis

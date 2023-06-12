@@ -1,0 +1,15 @@
+total 8
+-rw-r--r--   1 davidhand  staff  223 Aug 11  2020 README_PTOLEMARCH_NETRW
+drwxr-xr-x  10 davidhand  staff  320 Mar  4  2021 ack.vim
+drwxr-xr-x  12 davidhand  staff  384 Mar  4  2021 haskell-vim
+drwxr-xr-x  13 davidhand  staff  416 Mar  4  2021 html5.vim
+drwxr-xr-x  10 davidhand  staff  320 Jan 17 16:24 jq.vim
+drwxr-xr-x  12 davidhand  staff  384 Mar  4  2021 mojo.vim
+drwxr-xr-x   7 davidhand  staff  224 Aug 11  2020 netrw
+drwxr-xr-x  14 davidhand  staff  448 Sep 23  2020 sonokai
+drwxr-xr-x   7 davidhand  staff  224 Sep 22  2020 vim-colors-solarized
+drwxr-xr-x  11 davidhand  staff  352 Mar  4  2021 vim-javascript
+drwxr-xr-x   8 davidhand  staff  256 Mar  4  2021 vim-pathogen
+drwxr-xr-x  21 davidhand  staff  672 Mar  4  2021 vim-perl
+drwxr-xr-x  12 davidhand  staff  384 Mar  4  2021 vim-perl6
+drwxr-xr-x   7 davidhand  staff  224 Mar  4  2021 vim-systemd-syntax

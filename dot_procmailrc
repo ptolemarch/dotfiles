@@ -1,0 +1,14 @@
+PMDIR=$HOME/.procmail
+LOGFILE=$PMDIR/log
+
+PATH=/Users/cogent/bin:/usr/local/bin:/usr/bin:/bin
+SHELL=/bin/bash
+
+MAILDIR=$HOME/Mail
+
+#INCLUDERC=$PMDIR/rc.testing
+INCLUDERC=$PMDIR/rc.me
+INCLUDERC=$PMDIR/rc.subscriptions
+INCLUDERC=$PMDIR/rc.other
+
+DEFAULT='_INCOMING/'

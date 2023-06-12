@@ -1,0 +1,50 @@
+#! bash
+
+if [[ -f ~/.functions && -z __PTOLEMARCH_FUNCTIONS_LOADED__ ]]; then
+    source ~/.functions
+fi
+
+# for help testing deals endpoint, RPTG-10783
+media-call()
+{
+    local organization_id=$1; shift
+    local deal_id=$1; shift
+
+    [[ $organization_id == '.' ]] && unset organization_id
+    [[         $deal_id == '.' ]] && unset deal_id
+
+    set -o xtrace
+    curl -s -k -c cookies.txt -b cookies.txt "https://t1qa10.mediamath.com/media/v1.0/deals?owner.organization_id=${organization_id}&q=(${deal_id})&page_limit=0" | jq
+    set +o xtrace
+}
+
+# for help testing deals endpoint, RPTG-10783
+deals-call()
+{
+    local organization_id=$1; shift
+    local deal_id=$1; shift
+
+    [[ $organization_id == '.' ]] && unset organization_id
+    [[         $deal_id == '.' ]] && unset deal_id
+
+    organization_id=${organization_id:+organization_id%3D$organization_id}
+    deal_id=${deal_id:+deal_id%3D$deal_id}
+
+    local both
+    [[ -n $organization_id && -n $deal_id ]] && both='%26'
+
+    set -o xtrace
+    curl -s -k -D - -c cookies.txt -b cookies.txt "http://localhost:9090/reporting/v1/std/deals?filter=${organization_id}${both}${deal_id}&dimensions=deal_id&time_window=yesterday&time_rollup=all&metrics=biddables%2Cbids%2Cwins" 
+    set +o xtrace
+}
+
+mm-vpn()
+{
+    sudo \
+        openfortivpn
+}
+
+stop-picard()
+{
+    docker stop $(docker ps | perl -anE '/picard/ && say pop @F')
+}

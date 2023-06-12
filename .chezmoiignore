@@ -1,0 +1,77 @@
+# Mac OS X
+.Trash
+.DS_Store
+**/.DS_Store
+.CFUserTextEncoding
+._*
+.bash_sessions/
+
+# Chezmoi doesn't like "managing" itself
+.config/chezmoi/
+
+# XDG Base Directories
+# https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
+.cache/       # $XDG_CACHE_HOME
+.local/share  # $XDG_DATA_HOME
+.local/state  # $XDG_STATE_HOME
+.local/bin    # oddly, doesn't get a name
+.local/       # In fact, I mean, why not?
+
+# X11
+.xsession-errors
+.xsession-errors.old
+.Xauthority
+.ICEauthority
+
+# Perl
+.perl5/cpanm/
+.perl5/minicpan/
+
+# Other Languages
+.python/
+.raku/
+.npm/
+.yarnrc
+.java/
+.oracle_jre_usage/
+
+# Vim
+**/.sw?
+**/.*.sw?
+**/*~
+.viminfo
+.viminfo.tmp
+
+# ZSH
+.zsh/.zcompdump
+
+# Histories
+.zsh/history
+.bash/history
+.lesshst
+.bash_history
+.history
+.psql_history
+.units_history
+.rlwrap/
+.ghc/ghci_history
+.vim/.netrwhist
+.wget-hsts
+
+# GPG
+.gnupg/S.*          # sockets
+.gnupg/random_seed  # heh
+
+# Misc
+.cups/
+.fonts/.uuid
+.config/iterm2/
+.docker/
+
+# Capital-name directories and files
+[A-Z]*
+
+# Code directory
+!Code/
+Code/**
+!Code/.keep

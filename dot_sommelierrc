@@ -1,0 +1,4 @@
+#! /bin/bash
+
+# on Crouton, .Xresources is ignored otherwise
+xrdb -merge ~/.Xresources

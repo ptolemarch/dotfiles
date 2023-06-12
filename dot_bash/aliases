@@ -1,0 +1,52 @@
+#! bash
+
+if [[ $cpanm_cpan_mirror ]] ; then
+    alias 'cpan-outdated'="cpan-outdated --mirror $cpanm_cpan_mirror"
+fi
+
+ls_opts='--sort=version --human-readable --classify --color=auto'
+#ls_opts='-vhkFH --color=auto'
+alias l="ls $ls_opts"
+alias la="ls $ls_opts -A"
+alias ll="ls $ls_opts -l"
+alias lal="ls $ls_opts -Al"
+alias l.="ls $ls_opts -d .*"
+alias lltr="ls $ls_opts -ltr"
+
+grep_opts='--color=auto'
+alias grep="grep $grep_opts"
+alias fgrep="fgrep $grep_opts"
+alias egrep="egrep $grep_opts"
+
+mailstat_log="$HOME/.procmail/log"
+alias ms="mailstat -l $mailstat_log"
+alias msk="mailstat -kl $mailstat_log"
+alias mst="mailstat -t $mailstat_log"
+alias mskt="mailstat -kt $mailstat_log"
+
+alias fm='fetchmail'
+alias fmq='fetchmail -q'
+alias efm='echo -n > ~/.fetchmail.log'
+alias tfm='tail -f ~/.fetchmail.log'
+
+alias vs='vim +"set showbreak=" +"set paste"'
+alias r~m='find . -name "*~" -delete -print'
+alias fswp='find . -name ".*.sw?"'
+
+alias dh.c='ssh davidhand.com'
+alias telnethack='telnet nethack.alt.org'
+
+alias 1password='open -a Safari ~/Documents/1Password.agilekeychain/1Password.html'
+
+alias startx='echo "please use \`x11\` instead"'
+
+# an interesting idea from Ubuntu's .bashrc
+alias 'notify-alert'='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+# a thing of terror and delight
+#  note I had to use double-quotes, so I had to escape all $
+#  also all /
+#  blargh
+alias yadm-encrypt-diffs="vimdiff <(yadm decrypt -l | perl -anE 's/^(\\S+\\s\\w+\\/\\w+)\\s+(\\d+)/\$1 \$2/; print' | sort -k6) <(ls -l --time-style=+'%Y-%m-%d %H:%M' \$(yadm decrypt -l | perl -anE 's/^\\S+ \\w+\\/\\w+ +\\d+ [\\d-]+ [\\d:]+ //; s/ /\\ /g; print') | perl -anE 'next if /^total/; s/^(\\S+\\s)\\d+\\s(\\w+)\\s(\\w+)\\s+(\\d+)/\$1\$2\/\$3 \$4/; print' | sort -k6)"
+
+alias xclipc='xclip -selection clipboard'

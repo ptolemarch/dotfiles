@@ -1,0 +1,21 @@
+run Zsh configuration questionnaire:
+   `autoload -U zsh-newuser-install && zsh-newuser-install -f`
+completions configuration questionnaire:
+   `autoload -Uz compinstall && compinstall`
+
+startup script order:
+        /etc/zshenv         ALWAYS
+        $ZDOTDIR/.zshenv      RCS
+        /etc/zprofile       GLOBAL_RCS   login
+        $ZDOTDIR/.zprofile  RCS          login
+        /etc/zshrc          GLOBAL_RCS   interactive
+        $ZDOTDIR/.zshrc     RCS          interactive
+        /etc/zlogin         GLOBAL_RCS   login
+        $ZDOTDIR/.zlogin    RCS          login 
+exit script order:
+        $ZDOTDIR/.zlogout   RCS          login
+        /etc/zlogout        GLOBAL_RCS   login
+Note any of these files can be compiled using `zcompile`. Name appended
+with .zwc (e.g. .zshlogin.zwc, I suppose)
+
+

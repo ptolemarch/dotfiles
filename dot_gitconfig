@@ -1,0 +1,37 @@
+[user]
+	name = David Hand
+	email = davidhand@davidhand.com
+[core]
+# global excludes file is default: ~/config/git/ignore
+#  (rather than ~/.gitignore)
+[color]
+	ui = auto
+	branch = auto
+	diff = auto
+	grep = auto
+	interactive = auto
+	showbranch = auto
+	status = auto
+[color "diff"]
+	meta = black white
+[push]
+	default = current
+[alias]
+	ustatus = status --untracked-files=normal
+	unstage = reset --
+	release = ! git tag release-`date +%Y%m%d%H%M` && git push --tags
+
+[core]
+	pager = less -F -X
+[grep]
+	extendRegexp = true
+	lineNumber = true
+	patternType = perl
+	threads = 4
+[diff]
+[difftool]
+	prompt = false
+[pull]
+	rebase = true
+[url "ssh://git@git.perceptyx.com/"]
+	insteadOf = git.perceptyx.com/

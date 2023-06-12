@@ -1,0 +1,6 @@
+editMode: Vi
+bellStyle: VisualBell
+completionType: ListCompletion
+maxHistorySize: Just 1000
+completionPromptLimit: Just 20
+historyDuplicates: IgnoreConsecutive
