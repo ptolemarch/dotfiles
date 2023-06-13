@@ -35,3 +35,5 @@
 	rebase = true
 [url "ssh://git@git.perceptyx.com/"]
 	insteadOf = git.perceptyx.com/
+[credential]
+	helper = store
