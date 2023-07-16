@@ -1,7 +1,12 @@
 # This is my todo list for my dotfiles.
 
+
+
 - Zsh
   - prompt
+    - chezmoi status info
+    - different during `chezmoi cd`
+       - also, don't warn on PATH in that case
   - history
     - in color?
     - shared?

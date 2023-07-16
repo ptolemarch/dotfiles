@@ -30,8 +30,8 @@ include "%L"
 
 <Multi_key> <slash> <equal>  	: "≠"  U2260  # NOT EQUAL TO
 
-<Multi_key> <tilde> <tilde>	: "≈"  U2248  # ALMOST EQUAL TO
-<Multi_key> <slash> <tilde> <tilde> 	: "≉"  U2249  # NOT ALMOST EQUAL TO
+#<Multi_key> <tilde> <tilde>	: "≈"  U2248  # ALMOST EQUAL TO
+#<Multi_key> <slash> <tilde> <tilde> 	: "≉"  U2249  # NOT ALMOST EQUAL TO
 
 <Multi_key> <slash> <less>	: "≮"  U226E  # NOT LESS-THAN
 <Multi_key> <underscore> <less>	: "≤"  U2264  # LESS-THAN OR EQUAL TO
