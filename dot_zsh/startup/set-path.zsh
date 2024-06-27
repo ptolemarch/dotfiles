@@ -188,6 +188,8 @@ ptolemarch_PATH_default=($path)
 # these things are always first in line
 path=(
     $HOME/bin 
+    $HOME/.local/kitty.app/bin
+    $HOME/.local/bin
     $HOME/.yadm-project
     # also rakubrew
 )

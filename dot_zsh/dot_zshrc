@@ -118,6 +118,9 @@ export PLENV_ROOT="$ptolemarch_perl5_root/plenv"
 # documenting this here because not sure where else
 # plenv install 5.36.0 --test -j 8 -Doptimize=-O3 -Dlocincpth=/usr/local/include -Dloclibpth=/usr/local/lib
 # plenv install 5.32.0 --as=teapot --test -j 8 -Doptimize=-O3 -Dlocincpth=/usr/local/include -Dloclibpth=/usr/local/lib
+#
+# chromebook:
+# plenv install 5.40.0 --as=teapot --test -j 4 -Doptimize='-O3 -march=native' -Dusequadmath -Dlocincpth=/usr/local/include -Dloclibpth=/usr/local/lib
 
 if [[ -d $ptolemarch_perl5_root/minicpan ]]; then
     ptolemarch_cpanm_cpan_mirror="file://$ptolemarch_perl5_root/minicpan/"
@@ -132,9 +135,9 @@ if ! [[ -n $ptolemarch_HOST_perceptyx_jail ]]; then
 fi
 
 # === Go ====================================================================
-GOPATH="$HOME/.go"
-
-export GOPATH
+#GOPATH="$HOME/.go"
+#
+#export GOPATH
 
 # === Python ================================================================
 # >>> conda initialize >>>

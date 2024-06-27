@@ -51,10 +51,8 @@ if [[ -f ~/.bash/functions.work ]]; then
 fi
 
 # == paths ===================================================================
-export PATH="\
-$HOME/bin\
-:$PREFIX/bin:$PREFIX/bin/applets\
-:$HOME/bin/work\
+# careful; we're about to prepend some stuff here in just a moment
+PATH="$HOME/bin/work\
 :$HOME/.yadm-project/\
 :$HOME/.perl5/plenv/bin\
 :$HOME/.rakudobrew/bin\
@@ -78,7 +76,14 @@ $HOME/bin\
 :/bin\
 :/sbin\
 "
-# it would be nice to interpolate $GOROOT above
+
+if [[ -d "$PREFIX" ]] ; then
+    PATH="$PREFIX/bin:$PREFIX/bin/applets:$PATH"
+fi
+
+PATH="$HOME/bin:$HOME/.local/bin:$PATH"
+
+export PATH
 
 # seems to do more harm than good on OSX
 #export MANPATH="\
@@ -195,9 +200,9 @@ export GTK_IM_MODULE
 HUGSFLAGS='-E"vim +%d %s"'
 export HUGSFLAGS
 
-GOPATH="$HOME/.go"
-GOROOT='/usr/lib/go-1.10'
-export GOPATH GOROOT
+#GOPATH="$HOME/.go"
+#GOROOT='/usr/lib/go-1.10'
+#export GOPATH GOROOT
 
 # make less more friendly for non-text input files
 #   see lesspipe(1) or read /usr/bin/lesspipe
@@ -219,7 +224,7 @@ if type -p brew > /dev/null 2>&1; then
     homebrew_prefix="$(brew --prefix)"
 
     # allows hitting the GitHub API way harder, 'cuz signed-in
-    export HOMEBREW_GITHUB_API_TOKEN=91d3c97f56952a4e4dd7de62b60c19d5196201c5
+#    export HOMEBREW_GITHUB_API_TOKEN=  NOPE
 
     # otherwise it's /opt/homebrew-cask/Caskroom ?!?
     export HOMEBREW_CASK_OPTS="--caskroom=$homebrew_prefix/Caskroom"

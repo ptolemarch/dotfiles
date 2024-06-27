@@ -189,6 +189,7 @@ OPTIONS=hilite_pile
 OPTIONS=lit_corridor
 OPTIONS=use_inverse
 OPTIONS=use_darkgray
+OPTIONS=autodescribe
 
 # ######################################################################
 #  Menus

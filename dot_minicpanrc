@@ -1,7 +1,10 @@
 local: ~/.perl5/minicpan
 
+# OMG, CPAN mirrors are a thing of the past?!
+remote: http://www.cpan.org/
+
 # NYC
-remote: http://mirror.low-orbit.net/pub/cpan/
+#remote: http://mirror.low-orbit.net/pub/cpan/
 
 # Lansing
 #remote: http://httpupdate118.cpanel.net/CPAN/
