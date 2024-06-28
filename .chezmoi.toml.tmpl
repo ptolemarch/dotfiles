@@ -15,4 +15,5 @@ encryption = "gpg"
     symmetric = true
     args = ["--quiet", "--batch", "--passphrase", {{ $passphrase | quote }}, "--no-symkey-cache"]
 [git]
+    autoAdd = true
     autoCommit = true
