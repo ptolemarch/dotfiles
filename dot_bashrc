@@ -1,6 +1,9 @@
 # ~/.bashrc: executed by bash(1) for interactve, non-login shells.
 #   (also sourced at the beginning of my .profile)
 
+#test
+#test2
+
 # BASH_ENV is used to initialize non-interactive shells
 BASH_ENV=~/.bash/env
 

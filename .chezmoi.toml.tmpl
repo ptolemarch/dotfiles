@@ -12,6 +12,7 @@ encryption = "gpg"
 [data]
     passphrase = {{ $passphrase | quote }}
 [gpg]
-    autoCommit = true
     symmetric = true
     args = ["--quiet", "--batch", "--passphrase", {{ $passphrase | quote }}, "--no-symkey-cache"]
+[git]
+    autoCommit = true
