@@ -56,6 +56,7 @@ PATH="$HOME/bin/work\
 :$HOME/.yadm-project/\
 :$HOME/.perl5/plenv/bin\
 :$HOME/.rakudobrew/bin\
+:$HOME/.cargo/bin\
 :$HOME/.go/bin\
 :$HOME/.swift/usr/bin\
 :/usr/lib/go-1.10/bin\
@@ -271,6 +272,9 @@ export RLWRAP_HOME="$HOME/.rlwrap"
 
 # == Android SDK Update Manager ==============================================
 export ANDROID_SWT='/usr/share/swt-3.7/lib'
+
+# == Keyboardio Kaleidoscope =================================================
+export KALEIDOSCOPE_DIR=${HOME}/src/Kaleidoscope
 
 # == EXPORTS FOR WORK ========================================================
 # (see also functions for work, above)

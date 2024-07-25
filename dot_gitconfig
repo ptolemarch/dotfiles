@@ -37,3 +37,5 @@
 	insteadOf = git.perceptyx.com/
 [credential]
 	helper = store
+[init]
+	defaultBranch = main

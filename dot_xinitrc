@@ -3,6 +3,26 @@
 # Turns out you gotta do this manually.
 [[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
 
+# desk at home: two large external monitors, both to the left
+xrandr \
+	--output   DP-0 --primary \
+	--output   DP-1  --left-of DP-0 \
+	--output   DP-3  --left-of DP-1 #\
+#	--output HDMI-0 --right-of DP-0 --rotate right
+
+# on the move: portable external monitor on the left
+#xrandr \
+#	--output DP-0   --auto --primary     --pos 1080x0 \
+#	--output HDMI-0 --auto --rotate left --pos 0x120
+
+#picom --backend glx --dbus --daemon 
+
+xsetroot \
+	-xcf ~/.config/Ptolemarch/hand 32 \
+	-bitmap ~/.config/Ptolemarch/houndstoothProperSizeProperWidth.xbm \
+	-fg dodgerblue4 \
+	-bg gray6
+
 # looks like it doesn't actually hurt anything to just run this,
 #  even if not everything's there
 # work office
@@ -39,11 +59,11 @@
 
 # start things up
 #eval $(ssh-agent -s)
-#xscreensaver -no-splash &
+xscreensaver -no-splash &
 
 #exec $HOME/Sources/wtftw/target/debug/wtftw
 /usr/bin/xmonad
 
 # shut things down
 #ssh-agent -k
-#xscreensaver-command -exit
+xscreensaver-command -exit

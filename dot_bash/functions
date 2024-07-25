@@ -193,13 +193,10 @@ minecraft()
     popd
 }
 
-export _PTOLEMARCH_X11_GLOBAL_NO_REENTRY
 x11()
 {
-    if [[ -z $_PTOLEMARCH_X11_GLOBAL_NO_REENTRY ]]; then
-        export _PTOLEMARCH_X11_GLOBAL_NO_REENTRY=1
-        /usr/bin/startx > ~/.x11.out 2> ~/.x11.err
-        unset _PTOLEMARCH_X11_GLOBAL_NO_REENTRY
+    if [[ -z $DISPLAY ]]; then
+        exec /usr/bin/startx > ~/.x11.out 2> ~/.x11.err
     fi
 }
 
@@ -337,6 +334,22 @@ CtrlC()
 VimHelp()
 {
     vim +"help $1 | only"
+}
+
+likely_fonts()
+{
+    local candidate="$1" ; shift
+    fc-list \
+    | grep -i "$candidate" \
+    | grep -o ':[^:]\+:' \
+    | sort -u \
+    | grep -o '[A-Za-z0-9][^:]\+'
+}
+
+ucp()
+{
+    local codepoint="$1" ; shift
+    perl -CSD -E 'printf "%s \n", chr hex "'"$codepoint"'"'
 }
 
 

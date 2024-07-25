@@ -7,6 +7,14 @@
 " - fullscreen = command+enter
 " - maybe find a better light-background color scheme?
 
+
+" these are global, so they don't reliably work with (e.g. path-based)
+" autocommands
+set directory=~/.vim/SWAP//
+set backupdir=~/.vim/BACKUP//
+
+set bg=dark
+
 "============================================================================
 "   mapleader and maplocalleader
 "   set here before any plugins are loaded because once a mapping is defined
@@ -188,25 +196,6 @@ let perl_sub_signatures = 1
 
 "-- Code --------------------------------------------------------------------
 let perl_include_pod=1  " perl highlighter should recognize POD
-
-"-- Work whitespace ---------------------------------------------------------
-function Geeknet_whitespace ()
-    setlocal tabstop=8
-    setlocal shiftwidth=8
-    setlocal noexpandtab
-endfunction
-
-function Pivotal_whitespace ()
-    setlocal tabstop=2
-    setlocal shiftwidth=2
-    setlocal expandtab
-endfunction
-
-function Clearbuilt_whitespace ()
-    setlocal tabstop=3
-    setlocal shiftwidth=3
-    setlocal expandtab
-endfunction
 
 "============================================================================
 "   Key Maps
