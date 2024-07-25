@@ -5,7 +5,7 @@
 # set PATH, programmatically
 
 [[ -n $ptolemarch_INCLUDE_set_path__ ]] && return 0
-ptolemarch_INCLUDE_set_path__=$(date +%s)
+export ptolemarch_INCLUDE_set_path__=$(date +%s)
 
 source $ZDOTDIR/startup/basic.zsh
 source $ZDOTDIR/startup/identify-machine.zsh

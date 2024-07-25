@@ -17,8 +17,8 @@ ptolemarch_INCLUDE_identify_machine__=$(date +%s)
         export ptolemarch_HOST_perceptyx_laptop=true
     elif [[ $uname = 'FreeBSD' && $hostname = 'dhand' ]]; then
         export ptolemarch_HOST_perceptyx_jail=true
-    elif [[ $uname = 'GNU/Linux' && $hostname = 'patrick' ]]; then
-        export ptolemarch_HOST_patrick=true
+    elif [[ $uname = 'GNU/Linux' && $hostname = 'maximilian' ]]; then
+        export ptolemarch_HOST_maximilian=true
     elif [[ $uname = 'GNU/Linux' && $hostname = 'penguin' ]]; then
         export ptolemarch_HOST_chromebook=true
     elif [[ $uname = 'Android' ]]; then

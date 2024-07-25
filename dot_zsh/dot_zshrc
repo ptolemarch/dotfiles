@@ -128,7 +128,8 @@ if [[ -d $ptolemarch_perl5_root/minicpan ]]; then
 fi
 export PERL_CPANM_HOME="$ptolemarch_perl5_root/cpanm"
 
-if ! [[ -n $ptolemarch_HOST_perceptyx_jail ]]; then
+if ! [[ -n $PLENV_INIT_ALREADY ]]; then
+    export PLENV_INIT_ALREADY=1
     # initialize plenv, but only if we're NOT on perceptyx jail
     #  (which uses perlbrew)
     eval "$(plenv init - zsh)"
