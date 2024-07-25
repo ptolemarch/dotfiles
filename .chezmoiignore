@@ -12,10 +12,10 @@
 # XDG Base Directories
 # https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
 .cache/       # $XDG_CACHE_HOME
-.local/share  # $XDG_DATA_HOME
+#.local/share  # $XDG_DATA_HOME
 .local/state  # $XDG_STATE_HOME
 .local/bin    # oddly, doesn't get a name
-.local/       # In fact, I mean, why not?
+#.local/       # In fact, I mean, why not?
 
 # X11
 .xsession-errors

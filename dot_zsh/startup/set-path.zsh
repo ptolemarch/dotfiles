@@ -191,7 +191,6 @@ path=(
     $HOME/.local/kitty.app/bin
     $HOME/.local/bin
     $HOME/.cargo/bin
->>>>>>> Stashed changes
     $HOME/.yadm-project
     # also rakubrew
 )
