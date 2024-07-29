@@ -29,9 +29,9 @@ autoload -Uz async && async
 [[ -r /etc/zsh_command_not_found ]] && source /etc/zsh_command_not_found 
 
 # from Gentoo (app-shells/zsh); requires app-shells/gentoo-zsh-completions
-autoload -U compinit promptinit
+autoload -U compinit #promptinit
 compinit
-promptinit; prompt gentoo
+#promptinit; prompt gentoo
 zstyle ':completion::complete:*' use-cache 1
 
 # from Gentoo (app-shells/zsh-autosuggestions); requires that
