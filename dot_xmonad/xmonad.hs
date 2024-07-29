@@ -34,11 +34,13 @@
 -- all screens switch as one ?
 -- show what I have on all spaces
 -- urgency?
+-- xcolor + display of result
+--   - maybe in xmobar, even?
+
 -- make float
 --  : feh
 --  : xmonad's error display
--- xcolor + display of result
---   - maybe in xmobar, even?
+-- desktop notifications
 
 -- signal-desktop
 -- signal-cli dbus

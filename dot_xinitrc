@@ -1,8 +1,36 @@
-# source systemwide .xinitrc? Or something?
+#!/bin/sh
 
-# Turns out you gotta do this manually.
-[[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
+# == redirect output to files ==========================================
+stdout="$HOME/.X11.out" 
+stderr="$HOME/.X11.err" 
 
+for std in "$stdout" "$stderr" ; do
+	[[ -f "$std" ]] && mv -f "$std" "$std.prev"
+done
+exec > "$stdout" 2> "$stderr"
+
+# == load preferences and key modifications ============================
+userresources="$HOME/.Xresources"
+usermodmap="$HOME/.Xmodmap"
+sysresources=/etc/X11/xinit/Xresources
+sysmodmap=/etc/X11/xinit/Xmodmap
+
+# in /etc/X11/xinit/xinitrc, they actually do
+# - sysresources
+# - sysmodmap
+# - userresources
+# - usermodmap
+# but, as you can see, I'm doing the resources first, then the modmaps.
+# Hopefully that won't break anything.
+for resources in "$sysresources" "$userresources" ; do
+	includes="$( dirname "$resources" )"
+	[[ -f "$resources" ]] && xrdb -merge -I"$includes" "$resources"
+done
+for modmap in "$sysmodmap" "$usermodmap" ; do
+	[[ -f "$modmap" ]] && xmodmap "$modmap"
+done
+
+# == arrange displays ==================================================
 # desk at home: two large external monitors, both to the left
 xrandr \
 	--output   DP-0 --primary \
@@ -17,30 +45,14 @@ xrandr \
 
 #picom --backend glx --dbus --daemon 
 
+# == set default mouse pointer and background ==========================
 xsetroot \
 	-xcf ~/.config/Ptolemarch/hand 32 \
 	-bitmap ~/.config/Ptolemarch/houndstoothProperSizeProperWidth.xbm \
 	-fg dodgerblue4 \
 	-bg gray6
 
-# looks like it doesn't actually hurt anything to just run this,
-#  even if not everything's there
-# work office
-#xrandr \
-#	--output eDP1	--auto --primary		\
-#	--output VGA1	--auto --left-of	eDP1	\
-#	--output HDMI1	--auto --right-of	eDP1	
-
-# home office
-#xrandr \
-#	--output VGA1	--auto --primary		\
-#	--output eDP1	--auto --left-of	VGA1	
-
-# pairing station
-#xrandr \
-#	--output HDMI1	--auto --primary		\
-#	--output eDP1	--auto --right-of	HDMI1	
-
+# == start things up ===================================================
 # straight from http://www.incenp.org/notes/2014/gnupg-for-ssh-authentication.html
 #if test -f $XDG_RUNTIME_DIR/gpg-agent-info && kill -0 $(head -n 1 $XDG_RUNTIME_DIR/gpg-agent-info | cut -d: -f2) 2>/dev/null ; then
 #    eval $(< $XDG_RUNTIME_DIR/gpg-agent-info)
@@ -61,9 +73,8 @@ xsetroot \
 #eval $(ssh-agent -s)
 xscreensaver -no-splash &
 
-#exec $HOME/Sources/wtftw/target/debug/wtftw
 /usr/bin/xmonad
 
-# shut things down
+# == shut things down ==================================================
 #ssh-agent -k
 xscreensaver-command -exit
