@@ -57,7 +57,8 @@ let g:matchup_transmute_enabled = 1
 "   General settings
 "----------------------------------------------------------------------------
 set nocompatible
-set cpoptions+=J
+set cpoptions+=J " J: sentence must be followed by two spaces (not tabs)
+
 
 " vi[minfo]:
 " 	'1000	Marks remembered for 1000 previous files

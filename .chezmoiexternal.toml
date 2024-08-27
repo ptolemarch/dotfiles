@@ -12,6 +12,23 @@
 	type = "git-repo"
 	refreshPeriod = "672h"  # four weeks
 
+[".zsh/opt/zsh-completions"]
+	url = "https://github.com/zsh-users/zsh-completions"
+	type = "git-repo"
+	refreshPeriod = "672h"  # four weeks
+[".zsh/opt/zsh-autosuggestions"]
+	url = "https://github.com/zsh-users/zsh-autosuggestions"
+	type = "git-repo"
+	refreshPeriod = "672h"  # four weeks
+[".zsh/opt/zsh-syntax-highlighting"]
+	url = "https://github.com/zsh-users/zsh-syntax-highlighting"
+	type = "git-repo"
+	refreshPeriod = "672h"  # four weeks
+[".zsh/opt/zsh-history-substring-search"]
+	url = "https://github.com/zsh-users/zsh-history-substring-search"
+	type = "git-repo"
+	refreshPeriod = "672h"  # four weeks
+
 [".zsh/opt/printc-"]
 	url = "https://github.com/philFernandez/printc-.git"
 	type = "git-repo"
