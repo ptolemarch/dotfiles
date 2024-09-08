@@ -11,6 +11,18 @@
 	url = "https://github.com/tokuhirom/plenv.git"
 	type = "git-repo"
 	refreshPeriod = "672h"  # four weeks
+[".perl5/plenv/plugins/plenv-libdirs"]
+	url = "https://github.com/mikkoi/plenv-libdirs.git"
+	type = "git-repo"
+	refreshPeriod = "672h"  # four weeks
+[".perl5/plenv/plugins/perl-build"]
+	url = "https://github.com/tokuhirom/Perl-Build.git"
+	type = "git-repo"
+	refreshPeriod = "672h"  # four weeks
+[".perl5/plenv/plugins/plenv-contrib"]
+	url = "https://github.com/miyagawa/plenv-contrib.git"
+	type = "git-repo"
+	refreshPeriod = "672h"  # four weeks
 
 [".zsh/opt/zsh-completions"]
 	url = "https://github.com/zsh-users/zsh-completions"

@@ -56,3 +56,10 @@ die_()
     warn_ "${(@)argv[2,-1]}"
     exit $errno
 }
+
+source_()
+{
+    thingy=$1
+    [[ -r $thingy ]] && source $thingy
+}
+
