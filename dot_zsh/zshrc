@@ -23,72 +23,19 @@
 fpath=(~/.zsh/functions $fpath)
 
 autoload -Uz add-zsh-hook  # && add-zsh-hook (not required; dunno why not)
-# zsh-async https://github.com/mafredri/zsh-async
-autoload -Uz async && async
 
-[[ -r /etc/zsh_command_not_found ]] && source /etc/zsh_command_not_found 
+# === Asynchronous Zsh =================================================
+# https://github.com/mafredri/zsh-async
+source $ZDOTDIR/opt/zsh-async/async.zsh
 
-# from Gentoo (app-shells/zsh); requires app-shells/gentoo-zsh-completions
-autoload -U compinit #promptinit
-compinit
-#promptinit; prompt gentoo
-zstyle ':completion::complete:*' use-cache 1
-
-# from Gentoo (app-shells/zsh-autosuggestions); requires that
-. /usr/share/zsh/site-functions/zsh-autosuggestions.zsh
-
+# === Functional Zsh ===================================================
+# https://github.com/Tarrasch/zsh-functional
 source $ZDOTDIR/opt/zsh-functional/functional.plugin.zsh
+
 source $ZDOTDIR/startup/basic.zsh
 source $ZDOTDIR/startup/identify-machine.zsh
 
 source $ZDOTDIR/startup/set-path.zsh
-
-# -- end general initializaiton ----------------------------------------------
-
-# == compinstall did this ====================================================
-# The following lines were added by compinstall
-
-zstyle ':completion:*' auto-description 'specify: %d'
-zstyle ':completion:*' completer _oldlist _expand _complete _ignored _match _prefix
-zstyle ':completion:*' completions 1
-zstyle ':completion:*' format 'completing %d'
-zstyle ':completion:*' glob 1
-zstyle ':completion:*' group-name ''
-zstyle ':completion:*' insert-unambiguous true
-zstyle ':completion:*' list-colors ''
-zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
-zstyle ':completion:*' match-original both
-zstyle ':completion:*' matcher-list '+' '+r:|[._-]=* r:|=*'
-zstyle ':completion:*' max-errors 2 numeric
-zstyle ':completion:*' menu select=2
-zstyle ':completion:*' original true
-zstyle ':completion:*' prompt 'correcting %e>'
-zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
-zstyle ':completion:*' substitute 1
-zstyle :compinstall filename '/Users/davidhand/.zshrc'
-
-autoload -Uz compinit && compinit
-# -- end compinstall ---------------------------------------------------------
-# == zsh-newuser-install =====================================================
-setopt AUTO_CD BEEP EXTENDED_GLOB NOMATCH
-bindkey -v
-# -- end zsh-newuser-install -------------------------------------------------
-
-# run-help command provides documentation on builtins and such
-#unalias run-help && autoload run-help
-
-# use completion system to handle expansion. Works with the _expand completer,
-#  above. See zshcompsys(1)
-# (by default, '^I' is bound to expand-or-complete)
-bindkey '^I' complete-word
-# allow shift-tab to be used to go backwards in a completion menu
-bindkey '^[[Z' reverse-menu-complete
-
-# allow zsh to correct command names
-setopt CORRECT
-# but stop suggesting the autocompletion functions for missing commands
-CORRECT_IGNORE='_*'
-# there's also a CORRECT_IGNORE_FILE parameter that does something similar
 
 # I like using # in interactive shells
 setopt INTERACTIVE_COMMENTS
@@ -110,18 +57,18 @@ setopt IGNORE_EOF
 
 zstyle :completion::complete:git-checkout:argument-rest:headrefs command "echo yourmom"
 
-# === Homebrew ==============================================================
+# === Homebrew =========================================================
 export HOMEBREW_CASK_OPTS="--appdir=$HOME/Applications"
 export HOMEBREW_NO_ENV_HINTS=1
 export HOMEBREW_EVAL_ALL=1
 
-# === Raku ==================================================================
+# === Raku =============================================================
 export RAKUBREW_HOME="$HOME/.raku/rakubrew"
 if [[ -x $HOME/.raku/rakubrew/bin/rakubrew ]]; then
     eval "$($HOME/.raku/rakubrew/bin/rakubrew init Zsh)"
 fi
 
-# === Perl ==================================================================
+# === Perl =============================================================
 ptolemarch_perl5_root="$HOME/.perl5"
 export PLENV_ROOT="$ptolemarch_perl5_root/plenv"
 # documenting this here because not sure where else
@@ -144,12 +91,12 @@ if ! [[ -n $PLENV_INIT_ALREADY ]]; then
     eval "$(plenv init - zsh)"
 fi
 
-# === Go ====================================================================
+# === Go ===============================================================
 #GOPATH="$HOME/.go"
 #
 #export GOPATH
 
-# === Python ================================================================
+# === Python ===========================================================
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 #__conda_setup="$('/Users/davidhand/.python/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
@@ -172,27 +119,84 @@ if [ -f "$ptolemarch_python_venv_activate" ]; then
     source "$ptolemarch_python_venv_activate"
 fi
 
-# == rlwrap (readline command wrapper) =======================================
+# == rlwrap (readline command wrapper) =================================
 export RLWRAP_HOME="$HOME/.rlwrap"
 
-# === iTerm2 ================================================================
+# === iTerm2 ===========================================================
 ITERM2_SI_PATH=$ZDOTDIR/startup/iterm2_shell_integration.zsh
 test -f $ITERM2_SI_PATH && source $ITERM2_SI_PATH;
 
-# === Zsh Help ==============================================================
-unalias run-help
+# === Zsh Help =========================================================
+unalias run-help 2> /dev/null
 #HELPDIR=/usr/share/zsh/5.9/help/  # this line doesn't appear to be necessary
 autoload run-help
 alias help=run-help
 
-# === Zsh Aliases ===========================================================
+# === Command-Not-Found ================================================
+[[ -r /etc/zsh_command_not_found ]] && source /etc/zsh_command_not_found 
+
+# === Zsh Completions ==================================================
+# https://github.com/zsh-users/zsh-completions
+fpath=($ZDOTDIR/opt/zsh-completions/src $fpath)
+autoload -U compinit && compinit
+zstyle ':completion::complete:*' use-cache 1
+# will the above still use Gentoo's app-shells/gentoo-zsh-completions ?
+
+# === Zsh Autosuggestions ==============================================
+# https://github.com/zsh-users/zsh-autosuggestions
+source $ZDOTDIR/opt/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# == compinstall did this ==============================================
+# The following lines were added by compinstall
+
+zstyle ':completion:*' auto-description 'specify: %d'
+zstyle ':completion:*' completer _oldlist _expand _complete _ignored _match _prefix
+zstyle ':completion:*' completions 1
+zstyle ':completion:*' format 'completing %d'
+zstyle ':completion:*' glob 1
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' insert-unambiguous true
+zstyle ':completion:*' list-colors ''
+zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
+zstyle ':completion:*' match-original both
+zstyle ':completion:*' matcher-list '+' '+r:|[._-]=* r:|=*'
+zstyle ':completion:*' max-errors 2 numeric
+zstyle ':completion:*' menu select=2
+zstyle ':completion:*' original true
+zstyle ':completion:*' prompt 'correcting %e>'
+zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
+zstyle ':completion:*' substitute 1
+zstyle :compinstall filename '/Users/davidhand/.zshrc'
+
+autoload -Uz compinit && compinit
+# -- end compinstall ---------------------------------------------------
+# == zsh-newuser-install ===============================================
+setopt AUTO_CD BEEP EXTENDED_GLOB NOMATCH
+bindkey -v
+# -- end zsh-newuser-install -------------------------------------------
+
+# use completion system to handle expansion. Works with the _expand completer,
+#  above. See zshcompsys(1)
+# (by default, '^I' is bound to expand-or-complete)
+bindkey '^I' complete-word
+# allow shift-tab to be used to go backwards in a completion menu
+bindkey '^[[Z' reverse-menu-complete
+
+# allow zsh to correct command names
+setopt CORRECT
+# but stop suggesting the autocompletion functions for missing commands
+CORRECT_IGNORE='_*'
+# there's also a CORRECT_IGNORE_FILE parameter that does something similar
+
+# === Zsh Aliases ======================================================
 source $ZDOTDIR/startup/aliases.zsh
 
-# === Zsh Prompt ============================================================
+# === Zsh Prompt =======================================================
 source $ZDOTDIR/startup/set-prompt.zsh
 
-# === Zsh Syntax Highlighting ===============================================
+# === Zsh Syntax Highlighting ==========================================
+# https://github.com/zsh-users/zsh-syntax-highlighting
 # Apparently, this needs to be at the end?
-source /usr/share/zsh/site-functions/zsh-syntax-highlighting.zsh
+source $ZDOTDIR/opt/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # vim: ts=4 sw=4 et ai
