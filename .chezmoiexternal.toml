@@ -49,6 +49,10 @@
 	url = "https://github.com/mafredri/zsh-async.git"
 	type = "git-repo"
 	refreshPeriod = "672h"  # four weeks
+[".zsh/opt/zsh-defer"]
+	url = "https://github.com/romkatv/zsh-defer.git"
+	type = "git-repo"
+	refreshPeriod = "672h"  # four weeks
 [".zsh/opt/zsh-functional"]
 	url = "https://github.com/ptolemarch/zsh-functional.git"
 	type = "git-repo"
