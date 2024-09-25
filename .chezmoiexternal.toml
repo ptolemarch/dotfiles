@@ -1,3 +1,4 @@
+# My Own Repos
 ["bin"]
 	url = "https://github.com/ptolemarch/bin.git"
 	type = "git-repo"
@@ -7,6 +8,7 @@
 	type = "git-repo"
 	refreshPeriod = "24h"  # one day
 
+# plenv and its plugins
 [".perl5/plenv"]
 	url = "https://github.com/tokuhirom/plenv.git"
 	type = "git-repo"
@@ -24,6 +26,7 @@
 	type = "git-repo"
 	refreshPeriod = "672h"  # four weeks
 
+# Zsh Plugins: from zsh-users
 [".zsh/opt/zsh-completions"]
 	url = "https://github.com/zsh-users/zsh-completions"
 	type = "git-repo"
@@ -41,6 +44,7 @@
 	type = "git-repo"
 	refreshPeriod = "672h"  # four weeks
 
+# Zsh Plugins: others
 [".zsh/opt/printc-"]
 	url = "https://github.com/philFernandez/printc-.git"
 	type = "git-repo"
@@ -58,6 +62,7 @@
 	type = "git-repo"
 	refreshPeriod = "672h"  # four weeks
 
+# Vim Plugins
 [".vim/pack/plugins/start/vim-go"]
 	url = "https://github.com/fatih/vim-go.git"
 	type = "git-repo"
