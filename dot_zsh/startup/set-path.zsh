@@ -54,12 +54,18 @@ has_path_changed()
 {
     local expected=$1
 
-    [[ $expected = $PATH ]] \
-    || warn_ 'The default PATH has changed.' \
-             'the last time we recorded it, it was:' \
-             "  $expected" \
-             'but now it is:' \
-             "  $PATH"
+    # if we expected this PATH, fine
+    [[ $expected = $PATH ]] && return 0
+
+    # Kitty prepends its own location under some situations, so
+    #  ignore a spurious first entry
+    [[ $expected = $PATH[(ws(:))2,-1] ]] && return 0
+
+    warn_ 'The default PATH has changed.' \
+          'the last time we recorded it, it was:' \
+          "  $expected" \
+          'but now it is:' \
+          "  $PATH"
 }
 
 # ======================================================================
@@ -176,7 +182,7 @@ has_path_changed()
 # (no INFOPATH)
 [[ -n $ptolemarch_HOST_phone ]] \
 && has_path_changed \
-  '/data/data/com.termux/files/usr/bin:/data/data/com.termux/files/usr/bin/applets'
+  '/data/data/com.termux/files/usr/bin'
 
 # ======================================================================
 #   Now set the PATH
