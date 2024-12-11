@@ -28,6 +28,10 @@ autoload -Uz add-zsh-hook  # && add-zsh-hook (not required; dunno why not)
 # https://github.com/mafredri/zsh-async
 source $ZDOTDIR/opt/zsh-async/async.zsh
 
+# === Deferred Zsh =====================================================
+# https://github.com/romkatv/zsh-defer
+source $ZDOTDIR/opt/zsh-defer/zsh-defer.plugin.zsh
+
 # === Functional Zsh ===================================================
 # https://github.com/Tarrasch/zsh-functional
 source $ZDOTDIR/opt/zsh-functional/functional.plugin.zsh
@@ -135,19 +139,12 @@ unalias run-help 2> /dev/null
 autoload run-help
 alias help=run-help
 
-# === Command-Not-Found ================================================
-[[ -r /etc/zsh_command_not_found ]] && source /etc/zsh_command_not_found 
-
 # === Zsh Completions ==================================================
 # https://github.com/zsh-users/zsh-completions
 fpath=($ZDOTDIR/opt/zsh-completions/src $fpath)
 autoload -U compinit && compinit
 zstyle ':completion::complete:*' use-cache 1
 # will the above still use Gentoo's app-shells/gentoo-zsh-completions ?
-
-# === Zsh Autosuggestions ==============================================
-# https://github.com/zsh-users/zsh-autosuggestions
-source $ZDOTDIR/opt/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # == compinstall did this ==============================================
 # The following lines were added by compinstall
@@ -191,15 +188,23 @@ setopt CORRECT
 CORRECT_IGNORE='_*'
 # there's also a CORRECT_IGNORE_FILE parameter that does something similar
 
+# === Zsh Autosuggestions ==============================================
+# https://github.com/zsh-users/zsh-autosuggestions
+zsh-defer source $ZDOTDIR/opt/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# === Command-Not-Found ================================================
+[[ -r /etc/zsh_command_not_found ]] \
+&& zsh-defer source /etc/zsh_command_not_found 
+
 # === Zsh Aliases ======================================================
-source $ZDOTDIR/startup/aliases.zsh
+zsh-defer source $ZDOTDIR/startup/aliases.zsh
 
 # === Zsh Prompt =======================================================
-source $ZDOTDIR/startup/set-prompt.zsh
+zsh-defer source $ZDOTDIR/startup/set-prompt.zsh
 
 # === Zsh Syntax Highlighting ==========================================
 # https://github.com/zsh-users/zsh-syntax-highlighting
 # Apparently, this needs to be at the end?
-source $ZDOTDIR/opt/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+zsh-defer source $ZDOTDIR/opt/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # vim: ts=4 sw=4 et ai
