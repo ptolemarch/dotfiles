@@ -1,3 +1,5 @@
+# vim: ts=8 sw=8 noet ai
+
 # My Own Repos
 ["bin"]
 	type = "git-repo"
@@ -17,6 +19,26 @@
 	type = "file"
 	url = "https://catrinity-font.de/downloads/CatrinityFlags.otf"
 	refreshPeriod = "672h"  # four weeks
+[".fonts/devicon.ttf"]
+	type = "archive-file"
+	url = "https://github.com/devicons/devicon/archive/master.zip"
+	path = "devicon-master/fonts/devicon.ttf"
+	refreshPeriod = "4383h"  # six months
+[".fonts/Unicode_IEC_symbol.ttf"]
+	type = "file"
+	url = "https://unicodepowersymbol.com/wp-content/uploads/2015/05/Unicode_IEC_symbol.ttf"
+	refreshPeriod = "8766h"  # one year
+[".fonts/fontawesome"]
+	type = "archive"
+	stripComponents = 2
+	include = [ "*/otfs/**" ]
+	url = "https://github.com/FortAwesome/Font-Awesome/releases/download/6.7.2/fontawesome-free-6.7.2-desktop.zip"
+
+#[".fonts/Font Awesome 6 Brands-Regular-400.otf"]
+#[".fonts/Font Awesome 6 Free-Regular-400.otf"]
+#[".fonts/Font Awesome 6 Free-Solid-900.otf"]
+#	url = "https://unicodepowersymbol.com/wp-content/uploads/2015/05/Unicode_IEC_symbol.ttf"
+#	refreshPeriod = "8766h"  # one year
 
 # plenv and its plugins
 [".perl5/plenv"]
