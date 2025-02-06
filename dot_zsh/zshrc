@@ -146,6 +146,11 @@ autoload -U compinit && compinit
 zstyle ':completion::complete:*' use-cache 1
 # will the above still use Gentoo's app-shells/gentoo-zsh-completions ?
 
+# === Zsh Completions for chezmoi ======================================
+# chezmoi provides its own completions
+CHEZMOI_COMPL_PATH=$ZDOTDIR/startup/chezmoi-completions.zsh
+test -f $CHEZMOI_COMPL_PATH && source $CHEZMOI_COMPL_PATH;
+
 # == compinstall did this ==============================================
 # The following lines were added by compinstall
 
