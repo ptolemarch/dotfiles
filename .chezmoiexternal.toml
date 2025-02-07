@@ -22,23 +22,58 @@
 [".fonts/devicon.ttf"]
 	type = "archive-file"
 	url = "https://github.com/devicons/devicon/archive/master.zip"
-	path = "devicon-master/fonts/devicon.ttf"
+	stripComponents = 2
+	path = "devicon.ttf"
 	refreshPeriod = "4383h"  # six months
 [".fonts/Unicode_IEC_symbol.ttf"]
 	type = "file"
 	url = "https://unicodepowersymbol.com/wp-content/uploads/2015/05/Unicode_IEC_symbol.ttf"
-	refreshPeriod = "8766h"  # one year
+	refreshPeriod = "0"  # never; seems like a single release
 [".fonts/fontawesome"]
 	type = "archive"
+	url = "https://github.com/FortAwesome/Font-Awesome/releases/download/6.7.2/fontawesome-free-6.7.2-desktop.zip"
 	stripComponents = 2
 	include = [ "*/otfs/**" ]
-	url = "https://github.com/FortAwesome/Font-Awesome/releases/download/6.7.2/fontawesome-free-6.7.2-desktop.zip"
+	refreshPeriod = "0"  # never; version-specific URL
+[".fonts/font-awesome-extension.ttf"]
+	type = "archive-file"
+	url = "https://github.com/AndreLGava/font-awesome-extension/archive/v.0.0.3.tar.gz"
+	stripComponents = 2
+	path = "font-awesome-extension.ttf"
+	refreshPeriod = "0"  # never; apparently semi-abandoned
+[".fonts/MaterialDesignIconsDesktop.ttf"]
+	type = "file"
+	url = "https://github.com/Templarian/MaterialDesign-Font/raw/refs/heads/master/MaterialDesignIconsDesktop.ttf"
+	refreshPeriod = "0"  # never; apparently semi-abandoned
+[".fonts/MaterialDesignIconsDesktop-cheatsheet.html"]
+	type = "file"
+	url = "https://raw.githubusercontent.com/Templarian/MaterialDesign-Font/refs/heads/master/cheatsheet.html"
+	refreshPeriod = "0"  # never; apparently semi-abandoned
+[".fonts/MaterialDings.ttf"]
+	type = "file"
+	url = "https://github.com/Pictogrammers/MaterialDings/raw/refs/heads/main/dist/fonts/MaterialDings.ttf"
+	refreshPeriod = "0"  # never; apparently semi-abandoned
+[".fonts/font-logos.ttf"]
+	type = "archive-file"
+	url = "https://github.com/lukas-w/font-logos/releases/download/v1.3.0/font-logos-1.3.0.zip"
+	stripComponents = 2
+	path = "font-logos.ttf"
+	refreshPeriod = "0"  # never; version-specific URL
+[".fonts/font-mfizz.ttf"]
+	type = "file"
+	url = "https://github.com/fizzed/font-mfizz/raw/refs/heads/master/dist/font-mfizz.ttf"
+	refreshPeriod = "0"  # never; apparently semi-abandoned
+[".fonts/codicon.ttf"]
+	type = "file"
+	url = "https://github.com/microsoft/vscode-codicons/releases/download/0.0.36/codicon.ttf"
+	refreshPeriod = "0"  # never; apparently semi-abandoned
+[".fonts/weathericons-regular-webfont.ttf"]
+	type = "archive-file"
+	url = "https://github.com/erikflowers/weather-icons/archive/master.zip"
+	stripComponents = 2
+	path = "weathericons-regular-webfont.ttf"
+	refreshPeriod = "0"  # never
 
-#[".fonts/Font Awesome 6 Brands-Regular-400.otf"]
-#[".fonts/Font Awesome 6 Free-Regular-400.otf"]
-#[".fonts/Font Awesome 6 Free-Solid-900.otf"]
-#	url = "https://unicodepowersymbol.com/wp-content/uploads/2015/05/Unicode_IEC_symbol.ttf"
-#	refreshPeriod = "8766h"  # one year
 
 # plenv and its plugins
 [".perl5/plenv"]
