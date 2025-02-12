@@ -20,13 +20,14 @@
 # completions configuration questionnaire:
 #       `autoload -Uz compinstall && compinstall`
 
-fpath=(~/.zsh/functions $fpath)
+fpath=($ZDOTDIR/functions $fpath)
 
 autoload -Uz add-zsh-hook  # && add-zsh-hook (not required; dunno why not)
 
 # === Asynchronous Zsh =================================================
 # https://github.com/mafredri/zsh-async
-source $ZDOTDIR/opt/zsh-async/async.zsh
+#source $ZDOTDIR/opt/zsh-async/async.zsh
+autoload -Uz async && async
 
 # === Deferred Zsh =====================================================
 # https://github.com/romkatv/zsh-defer
@@ -58,8 +59,6 @@ setopt INC_APPEND_HISTORY_TIME
 setopt IGNORE_EOF
 
 #zstyle :completion::complete:git-checkout:argument-rest:headrefs command "git for-each-ref --format='%(refname)' refs/heads 2>/dev/null"
-
-zstyle :completion::complete:git-checkout:argument-rest:headrefs command "echo yourmom"
 
 # === Homebrew =========================================================
 if [[ -x /opt/homebrew/bin/brew ]]; then
@@ -143,51 +142,51 @@ alias help=run-help
 # https://github.com/zsh-users/zsh-completions
 fpath=($ZDOTDIR/opt/zsh-completions/src $fpath)
 autoload -U compinit && compinit
-zstyle ':completion::complete:*' use-cache 1
+#zstyle ':completion::complete:*' use-cache 1
 # will the above still use Gentoo's app-shells/gentoo-zsh-completions ?
 
 
-# == compinstall did this ==============================================
-# The following lines were added by compinstall
-
-zstyle ':completion:*' auto-description 'specify: %d'
-zstyle ':completion:*' completer _oldlist _expand _complete _ignored _match _prefix
-zstyle ':completion:*' completions 1
-zstyle ':completion:*' format 'completing %d'
-zstyle ':completion:*' glob 1
-zstyle ':completion:*' group-name ''
-zstyle ':completion:*' insert-unambiguous true
-zstyle ':completion:*' list-colors ''
-zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
-zstyle ':completion:*' match-original both
-zstyle ':completion:*' matcher-list '+' '+r:|[._-]=* r:|=*'
-zstyle ':completion:*' max-errors 2 numeric
-zstyle ':completion:*' menu select=2
-zstyle ':completion:*' original true
-zstyle ':completion:*' prompt 'correcting %e>'
-zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
-zstyle ':completion:*' substitute 1
-zstyle :compinstall filename '/Users/davidhand/.zshrc'
-
-autoload -Uz compinit && compinit
-# -- end compinstall ---------------------------------------------------
-# == zsh-newuser-install ===============================================
-setopt AUTO_CD BEEP EXTENDED_GLOB NOMATCH
-bindkey -v
-# -- end zsh-newuser-install -------------------------------------------
-
-# use completion system to handle expansion. Works with the _expand completer,
-#  above. See zshcompsys(1)
-# (by default, '^I' is bound to expand-or-complete)
-bindkey '^I' complete-word
-# allow shift-tab to be used to go backwards in a completion menu
-bindkey '^[[Z' reverse-menu-complete
-
-# allow zsh to correct command names
-setopt CORRECT
-# but stop suggesting the autocompletion functions for missing commands
-CORRECT_IGNORE='_*'
-# there's also a CORRECT_IGNORE_FILE parameter that does something similar
+## == compinstall did this ==============================================
+## The following lines were added by compinstall
+#
+#zstyle ':completion:*' auto-description 'specify: %d'
+#zstyle ':completion:*' completer _oldlist _expand _complete _ignored _match _prefix
+#zstyle ':completion:*' completions 1
+#zstyle ':completion:*' format 'completing %d'
+#zstyle ':completion:*' glob 1
+#zstyle ':completion:*' group-name ''
+#zstyle ':completion:*' insert-unambiguous true
+#zstyle ':completion:*' list-colors ''
+#zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
+#zstyle ':completion:*' match-original both
+#zstyle ':completion:*' matcher-list '+' '+r:|[._-]=* r:|=*'
+#zstyle ':completion:*' max-errors 2 numeric
+#zstyle ':completion:*' menu select=2
+#zstyle ':completion:*' original true
+#zstyle ':completion:*' prompt 'correcting %e>'
+#zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
+#zstyle ':completion:*' substitute 1
+#zstyle :compinstall filename '/Users/davidhand/.zshrc'
+#
+#autoload -Uz compinit && compinit
+## -- end compinstall ---------------------------------------------------
+## == zsh-newuser-install ===============================================
+#setopt AUTO_CD BEEP EXTENDED_GLOB NOMATCH
+#bindkey -v
+## -- end zsh-newuser-install -------------------------------------------
+#
+## use completion system to handle expansion. Works with the _expand completer,
+##  above. See zshcompsys(1)
+## (by default, '^I' is bound to expand-or-complete)
+#bindkey '^I' complete-word
+## allow shift-tab to be used to go backwards in a completion menu
+#bindkey '^[[Z' reverse-menu-complete
+#
+## allow zsh to correct command names
+#setopt CORRECT
+## but stop suggesting the autocompletion functions for missing commands
+#CORRECT_IGNORE='_*'
+## there's also a CORRECT_IGNORE_FILE parameter that does something similar
 
 # === Zsh Autosuggestions ==============================================
 # https://github.com/zsh-users/zsh-autosuggestions
@@ -202,6 +201,9 @@ zsh-defer source $ZDOTDIR/startup/aliases.zsh
 
 # === Zsh Prompt =======================================================
 zsh-defer source $ZDOTDIR/startup/set-prompt.zsh
+
+# === Zsh Vi Mode ======================================================
+zsh-defer source $ZDOTDIR/opt/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
 # === Zsh Syntax Highlighting ==========================================
 # https://github.com/zsh-users/zsh-syntax-highlighting
