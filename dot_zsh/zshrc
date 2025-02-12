@@ -203,7 +203,21 @@ zsh-defer source $ZDOTDIR/startup/aliases.zsh
 zsh-defer source $ZDOTDIR/startup/set-prompt.zsh
 
 # === Zsh Vi Mode ======================================================
+# if this begins to get annoying, look at
+# https://stratus3d.com/blog/2017/10/26/better-vi-mode-in-zshell/
+function zvm_config() {
+    ZVM_KEYTIMEOUT=0.1
+    ZVM_ESCAPE_KEYTIMEOUT=0
+    ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
+}
 zsh-defer source $ZDOTDIR/opt/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+function zvm_after_init() {
+}
+function zvm_after_lazy_keybindings_commands() {
+    # put any extra bindkey stuff here
+    # also presumably any plugins that provide their own key bindings
+    # (e.g. fzf)
+}
 
 # === Zsh Syntax Highlighting ==========================================
 # https://github.com/zsh-users/zsh-syntax-highlighting
