@@ -203,7 +203,8 @@ zsh-defer source $ZDOTDIR/startup/aliases.zsh
 zsh-defer source $ZDOTDIR/startup/set-prompt.zsh
 
 # === Zsh Vi Mode ======================================================
-# if this begins to get annoying, look at
+# https://github.com/jeffreytse/zsh-vi-mode
+# but if this begins to get annoying, look at
 # https://stratus3d.com/blog/2017/10/26/better-vi-mode-in-zshell/
 function zvm_config() {
     ZVM_KEYTIMEOUT=0.1
