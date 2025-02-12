@@ -128,6 +128,10 @@
 	type = "git-repo"
 	url = "https://github.com/ptolemarch/zsh-functional.git"
 	refreshPeriod = "672h"  # four weeks
+[".zsh/opt/zsh-vi-mode"]
+	type = "git-repo"
+	url = "https://github.com/jeffreytse/zsh-vi-mode.git"
+	refreshPeriod = "672h"  # four weeks
 
 # Vim Plugins
 [".vim/pack/plugins/start/vim-go"]
