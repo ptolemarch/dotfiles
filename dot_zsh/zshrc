@@ -42,6 +42,11 @@ source $ZDOTDIR/startup/identify-machine.zsh
 
 source $ZDOTDIR/startup/set-path.zsh
 
+# color
+if type dircolors > /dev/null 2>&1 ; then
+    [[ -r ~/.bash/dircolors ]] && eval "$(dircolors -b ~/.bash/dircolors)" || eval "$(dircolors -b)"
+fi
+
 # I like using # in interactive shells
 setopt INTERACTIVE_COMMENTS
 
@@ -204,7 +209,7 @@ zsh-defer source $ZDOTDIR/startup/set-prompt.zsh
 
 # === Zsh Vi Mode ======================================================
 # https://github.com/jeffreytse/zsh-vi-mode
-# but if this begins to get annoying, look at
+# if this begins to get annoying, look at
 # https://stratus3d.com/blog/2017/10/26/better-vi-mode-in-zshell/
 function zvm_config() {
     ZVM_KEYTIMEOUT=0.1
