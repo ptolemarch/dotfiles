@@ -1,11 +1,11 @@
-{{ $passphrase := promptStringOnce . "passphrase" "passphrase" -}}
+{{ $pf := promptStringOnce . "pf" "passphrase" -}}
 # vim: ts=4 sw=4 et ai ft=toml
 
 #
 # Don't edit 
 #  .config/chezmoi/chezmoi.toml
-# instead, edit
-#  .local/share/chezmoi/.chezmoi.toml.tmpl
+# instead, use
+#  `chezmoi edit-config-template`
 #
 
 # https://www.chezmoi.io/reference/configuration-file/variables/
@@ -13,10 +13,10 @@ progress = true
 
 encryption = "gpg"
 [data]
-    passphrase = {{ $passphrase | quote }}
+    pf = {{ $pf | quote }}
 [gpg]
     symmetric = true
-    args = ["--quiet", "--batch", "--passphrase", {{ $passphrase | quote }}, "--no-symkey-cache"]
+    args = ["--quiet", "--batch", "--passphrase", {{ $pf | quote }}, "--no-symkey-cache"]
 [git]
     autoAdd = true
     autoCommit = true
