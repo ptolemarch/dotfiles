@@ -1,3 +1,7 @@
+# Chezmoi doesn't like "managing" itself
+.config/chezmoi/
+key.txt.age
+
 # Mac OS X
 .Trash
 .DS_Store
@@ -5,9 +9,6 @@
 .CFUserTextEncoding
 ._*
 .bash_sessions/
-
-# Chezmoi doesn't like "managing" itself
-.config/chezmoi/
 
 # XDG Base Directories
 # https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
