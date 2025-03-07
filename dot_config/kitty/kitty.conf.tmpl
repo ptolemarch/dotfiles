@@ -11,7 +11,8 @@
 
 mouse_hide_wait -1
 
-#env SHLVL=-1
+# any shell that's an immediate child of Kitty shall set its own SHLVL to 1
+env SHLVL=0
 
 [[ if ( eq (env "ptolemarch_HOST_chromebook") "true") ]]
 # for ChromeOS
