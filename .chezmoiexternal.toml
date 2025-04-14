@@ -1,5 +1,9 @@
 # vim: ts=8 sw=8 noet ai
 
+# Note: This file is interpreted as a template, whether or not it has
+#   a .tmpl extension. See
+#     https://www.chezmoi.io/reference/special-files/chezmoiexternal-format/
+
 # My Own Repos
 ["bin"]
 	type = "git-repo"
@@ -11,6 +15,17 @@
 	refreshPeriod = "24h"  # one day
 
 # Fonts
+# *** TODO: .fonts/IosevkaPtolemarchTerm/***
+[".fonts/Ultima_4_polished_runes.ttf"]
+	type = "archive-file"
+	url = "https://ultimacodex.com/foundation/Ultima_4_polished_runes.zip"
+	path = "Ultima_4_polished_runes.ttf"
+	refreshPeriod = "4383h"  # six months
+[".fonts/Ultima_5_polished_runes.ttf"]
+	type = "archive-file"
+	url = "https://ultimacodex.com/foundation/Ultima_5_polished_runes.zip"
+	path = "Ultima_5_polished_runes.ttf"
+	refreshPeriod = "4383h"  # six months
 [".fonts/Catrinity.otf"]
 	type = "file"
 	url = "https://catrinity-font.de/downloads/Catrinity.otf"
