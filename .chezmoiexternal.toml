@@ -16,6 +16,10 @@
 
 # Fonts
 # *** TODO: .fonts/IosevkaPtolemarchTerm/***
+[".fonts/JuliaMono"]
+	type = "archive"
+	url = "https://github.com/cormullion/juliamono/releases/download/v0.059/JuliaMono-ttf.zip"
+	refreshPeriod = "0"  # never; version-specific URL
 [".fonts/clacon2.ttf"]
 	type = "file"
 	url = "https://webdraft.hu/fonts/classic-console/fonts/clacon2.ttf"
