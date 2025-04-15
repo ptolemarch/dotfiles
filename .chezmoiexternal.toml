@@ -16,6 +16,10 @@
 
 # Fonts
 # *** TODO: .fonts/IosevkaPtolemarchTerm/***
+["./fonts/clacon2.ttf"]
+	type = "file"
+	url = "https://webdraft.hu/fonts/classic-console/fonts/clacon2.ttf"
+	refreshPeriod = "672h"  # four weeks
 [".fonts/Ultima_4_polished_runes.ttf"]
 	type = "archive-file"
 	url = "https://ultimacodex.com/foundation/Ultima_4_polished_runes.zip"
