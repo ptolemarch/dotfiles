@@ -16,7 +16,7 @@
 
 # Fonts
 # *** TODO: .fonts/IosevkaPtolemarchTerm/***
-["./fonts/clacon2.ttf"]
+[".fonts/clacon2.ttf"]
 	type = "file"
 	url = "https://webdraft.hu/fonts/classic-console/fonts/clacon2.ttf"
 	refreshPeriod = "672h"  # four weeks
