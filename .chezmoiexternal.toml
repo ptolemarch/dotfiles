@@ -17,19 +17,23 @@
 # Fonts
 # *** TODO: .fonts/IosevkaPtolemarchTerm/***
 [".fonts/JuliaMono"]
+# https://juliamono.netlify.app/
 	type = "archive"
 	url = "https://github.com/cormullion/juliamono/releases/download/v0.059/JuliaMono-ttf.zip"
 	refreshPeriod = "0"  # never; version-specific URL
 [".fonts/clacon2.ttf"]
+# https://webdraft.hu/fonts/classic-console/
 	type = "file"
 	url = "https://webdraft.hu/fonts/classic-console/fonts/clacon2.ttf"
 	refreshPeriod = "672h"  # four weeks
 [".fonts/Ultima_4_polished_runes.ttf"]
+# https://ultimacodex.com/foundation/convertlatin.html
 	type = "archive-file"
 	url = "https://ultimacodex.com/foundation/Ultima_4_polished_runes.zip"
 	path = "Ultima_4_polished_runes.ttf"
 	refreshPeriod = "4383h"  # six months
 [".fonts/Ultima_5_polished_runes.ttf"]
+# https://ultimacodex.com/foundation/convertlatin.html
 	type = "archive-file"
 	url = "https://ultimacodex.com/foundation/Ultima_5_polished_runes.zip"
 	path = "Ultima_5_polished_runes.ttf"
