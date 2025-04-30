@@ -93,462 +93,462 @@ font_size 12.0
 #: to get BIDI support, because it will force kitty to always treat
 #: the text as LTR, which FriBidi expects for terminals.
 
-# symbol_map
-
-#: E.g. symbol_map U+E0A0-U+E0A3,U+E0C0-U+E0C7 PowerlineSymbols
-
-#: Map the specified Unicode codepoints to a particular font. Useful
-#: if you need special rendering for some symbols, such as for
-#: Powerline. Avoids the need for patched fonts. Each Unicode code
-#: point is specified in the form `U+<code point in hexadecimal>`. You
-#: can specify multiple code points, separated by commas and ranges
-#: separated by hyphens. This option can be specified multiple times.
-#: The syntax is::
-
-#:     symbol_map codepoints Font Family Name
-#symbol_map U+1F535 Noto Color Emoji
-#symbol_map U+1F535 Twemoji
-#symbol_map U+1F40E Twemoji
-#symbol_map U+1F40E Noto Color Emoji
-#symbol_map U+1F40E Quivira
-
-#symbol_map U+1F600-U+1F606,U+1F609-U+1F60A,U+1F60D,U+1F610,U+1F617-U+1F619,U+1F61B-U+1F61D,U+1F620,U+1F622,U+1F626,U+1F62B-U+1F62E,U+1F633,U+1F636,U+1F642,U+1F644,U+1F681,U+1F686,U+1F68A,U+1F68D,U+1F690-U+1F691,U+1F696-U+1F698,U+1F69A,U+1F69C,U+1F6A2,U+1F6A6,U+1F6AA-U+1F6AD,U+1F6B0,U+1F6B2,U+1F6B4,U+1F6B6,U+1F6BD,U+1F6BF,U+1F6C1,U+1F6CC,U+1F6CE,U+1F6D0,U+1F6D2,U+1F6E1,U+1F6E3,U+1F6EB-U+1F6EC,U+1F6F0,U+1F6FB,U+1F7E0-U+1F7EB,U+1F90D-U+1F90E,U+1F916,U+1F91A,U+1F91D,U+1F923,U+1F929,U+1F941-U+1F944,U+1F94E,U+1F953,U+1F955,U+1F95A,U+1F977,U+1F990,U+1F99B,U+1F9A6,U+1F9B4,U+1F9B7,U+1F9CD,U+1F9E0-U+1F9E1,U+1F9E6,U+1F9E9-U+1F9EA,U+1F9EC-U+1F9ED,U+1F9EF-U+1F9F0,U+1F9F2-U+1F9F3,U+1F9F9,U+1F9FB-U+1F9FC,U+1F9FE,U+1FA79-U+1FA7A,U+1FA91,U+1FA9B,U+1FAB6,U+1FAC1 Font Awesome 6 Free Solid
-
-
-# ======================================================================
-# Catrinity
-# https://catrinity-font.de/
-# ----------------------------------------------------------------------
-# Basic Latin
-#symbol_map U+20-U+7E Catrinity
-# Latin-1 Supplement
-#symbol_map U+A0-U+FF Catrinity
-# Latin Extended-A
-#symbol_map U+100-U+17F Catrinity
-# Latin Extended-B
-#symbol_map U+180-U+24F Catrinity
-# IPA Extensions
-symbol_map U+250-U+2AF Catrinity
-# Spacing Modifier Letters
-symbol_map U+2B0-U+2FF Catrinity
-# Combining Diacritical Marks
-#symbol_map U+300-U+36F Catrinity
-# Greek and Coptic
-#symbol_map U+370-U+3F6 Catrinity
-# Cyrillic
-#symbol_map U+400-U+4FF Catrinity
-# Cyrillic Supplement
-#symbol_map U+500-U+52F Catrinity
-# Armenian
-#symbol_map U+531-U+58B Catrinity
-# Hebrew
-#symbol_map U+591-U+5E8 Catrinity
-# Arabic (digits)
-#symbol_map U+6F0-U+6F9 Catrinity
-# Combining Diacritical Marks Extended
-#symbol_map U+1AB0-U+1AC0 Catrinity
-# Cyrillic Extended-C
-#symbol_map U+1C80-U+1C88 Catrinity
-# Phonetic Extensions
-symbol_map U+1D00-U+1D7F Catrinity
-# Phonetic Extensions Supplement
-symbol_map U+1D80-U+1DBF Catrinity
-# Combining Diacritical Marks Supplement
-#symbol_map U+1DC0-U+1DFE Catrinity
-# Latin Extended Additional
-#symbol_map U+1E00-U+1EFF Catrinity
-# Greek Extended
-#symbol_map U+1F00-U+1FE8 Catrinity
-# General Punctuation
-symbol_map U+2000-U+206E Catrinity
-# Superscripts and Subscripts
-#symbol_map U+2070-U+2099 Catrinity
-# Currency Symbols
-symbol_map U+20A0-U+20BF Catrinity
-# Combining Diacritical Marks for Symbols
-#symbol_map U+20D0-U+20F0 Catrinity
-# Letterlike Symbols
-symbol_map U+2100-U+214F Catrinity
-# Number Forms
-symbol_map U+2150-U+218B Catrinity
-# Arrows
-symbol_map U+2190-U+21FF Catrinity
-# Mathematical Operators
-symbol_map U+2200-U+22FF Catrinity
-# Miscellaneous Technical
-symbol_map U+2300-U+23FF Catrinity
-# Control Pictures
-symbol_map U+2400-U+2426 Catrinity
-# Optical Character Recognition
-symbol_map U+2440-U+244A Catrinity
-# Enclosed Alphanumerics
-symbol_map U+2460-U+24FF Catrinity
-# Box Drawing
-symbol_map U+2500-U+257F Catrinity
-# Block Elements
-symbol_map U+2580-U+259F Catrinity
-# Geometric Shapes
-symbol_map U+25A0-U+25FF Catrinity
-# Miscellaneous Symbols
-symbol_map U+2600-U+26FF Catrinity
-# Dingbats
-symbol_map U+2700-U+27BF Catrinity
-# Miscellaneous Mathematical Symbols-A
-symbol_map U+27C0-U+27EF Catrinity
-# Supplemental Arrows-A
-symbol_map U+27F0-U+27FF Catrinity
-# Braille Patterns
-symbol_map U+2800-U+28FF Catrinity
-# Supplemental Arrows-B
-symbol_map U+2900-U+297F Catrinity
-# Miscellaneous Mathematical Symbols-B
-symbol_map U+2980-U+29FF Catrinity
-# Supplemental Mathematical Operators
-symbol_map U+2A00-U+2AFF Catrinity
-# Miscellaneous Symbols and Arrows
-symbol_map U+2B00-U+2BFC Catrinity
-# Latin Extended-C
-#symbol_map U+2C60-U+2C7F Catrinity
-# Coptic
-#symbol_map U+2C80-U+2CFA Catrinity
-# Cyrillic Extended-A
-#symbol_map U+2DE0-U+2DFF Catrinity
-# Supplemental Punctuation
-symbol_map U+2E00-U+2E52 Catrinity
-# Ideographic Description Characters
-#symbol_map U+2FF0-U+2FFB Catrinity
-# CJK Symbols and Punctuation
-#symbol_map U+3000-U+303F Catrinity
-# Hiragana
-#symbol_map U+3041-U+309D Catrinity
-# Katakana
-#symbol_map U+30A0-U+30FF Catrinity
-# Bopomofo
-#symbol_map U+3105-U+312F Catrinity
-# Hangul Compatibility Jamo
-#symbol_map U+3131-U+318E Catrinity
-# Kanbun
-#symbol_map U+3190-U+319F Catrinity
-# Bopomofo Extended
-#symbol_map U+31A0-U+31BF Catrinity
-# CJK Strokes
-#symbol_map U+31C0-U+31E3 Catrinity
-# Katakana Phonetic Extensions
-#symbol_map U+31F0-U+31FF Catrinity
-# Enclosed CJK Letters and Months
-#symbol_map U+3200-U+32FE Catrinity
-# CJK Compatibility
-#symbol_map U+3300-U+33FF Catrinity
-# Yijing Hexagram Symbols
-symbol_map U+4DC0-U+4DFF Catrinity
-# CJK Unified Ideographs
-#symbol_map U+4E2D Catrinity
-# Cyrillic Extended-B
-#symbol_map U+A640-U+A69F Catrinity
-# Latin Extended-D
-#symbol_map U+A720-U+A7D3 Catrinity
-# Latin Extended-E
-#symbol_map U+AB30-U+AB6B Catrinity
-# Alphabetic Presentation Forms
-#symbol_map U+FB00-U+FB39 Catrinity
-# Variation Selectors
-#symbol_map U+FE00-U+FE0F Catrinity
-# Vertical Forms
-#symbol_map U+FE10-U+FE19 Catrinity
-# Combining Half Marks
-#symbol_map U+FE20-U+FE2F Catrinity
-# CJK Compatibility Forms
-#symbol_map U+FE30-U+FE4F Catrinity
-# Small Form Variants
-#symbol_map U+FE50-U+FE69 Catrinity
-# Halfwidth and Fullwidth Forms
-symbol_map U+FF01-U+FFE1 Catrinity
-# Specials
-#symbol_map U+FFF9-U+FFFD Catrinity
-# Aegean Numbers
-symbol_map U+10100-U+10138 Catrinity
-# Ancient Greek Numbers
-symbol_map U+10140-U+1018E Catrinity
-# Ancient Symbols
-symbol_map U+10190-U+1019D Catrinity
-# Phaistos Disc
-symbol_map U+101D0-U+101FD Catrinity
-# Coptic Epact Numbers
-symbol_map U+102E0-U+102FB Catrinity
-# Gothic
-#symbol_map U+10330-U+1034A Catrinity
-# Deseret
-#symbol_map U+10400-U+1044F Catrinity
-# Egyptian Hieroglyph Format Controls
-#symbol_map U+13430-U+13438 Catrinity
-# Byzantine Musical Symbols
-symbol_map U+1D000-U+1D0F5 Catrinity
-# Musical Symbols
-symbol_map U+1D100-U+1D1E6 Catrinity
-# Ancient Greek Musical Notation
-symbol_map U+1D200-U+1D245 Catrinity
-# Mayan Numerals
-symbol_map U+1D2E0-U+1D2F3 Catrinity
-# Tai Xuan Jing Symbols
-symbol_map U+1D300-U+1D356 Catrinity
-# Counting Rod Numerals
-symbol_map U+1D360-U+1D378 Catrinity
-# Mathematical Alphanumeric Symbols
-symbol_map U+1D400-U+1D7E3 Catrinity
-# Mahjong Tiles
-symbol_map U+1F000-U+1F02B Catrinity
-# Domino Tiles
-symbol_map U+1F030-U+1F093 Catrinity
-# Playing Cards
-symbol_map U+1F0A0-U+1F0F1 Catrinity
-# Enclosed Alphanumeric Supplement
-symbol_map U+1F100-U+1F1C7 Catrinity
-# Enclosed Ideographic Supplement
-#symbol_map U+1F200-U+1F23F Catrinity
-
-# Miscellaneous Symbols and Pictographs
-#symbol_map U+1F300-U+1F5FF Catrinity
-symbol_map U+1F300-U+1F5FF Noto Color Emoji
-# Emoticons
-symbol_map U+1F600-U+1F64F Catrinity
-# Ornamental Dingbats
-symbol_map U+1F650-U+1F67F Catrinity
-# Transport and Map Symbols
-symbol_map U+1F680-U+1F6F1 Catrinity
-
-# Alchemical Symbols
-symbol_map U+1F700-U+1F773 Catrinity
-# Geometric Shapes Extended
-symbol_map U+1F780-U+1F7E4 Catrinity
-# Supplemental Arrows-C
-symbol_map U+1F800-U+1F895 Catrinity
-# Supplemental Symbols and Pictographs
-#symbol_map U+1F900-U+1F9FD Catrinity
-# Chess Symbols
-symbol_map U+1FA00-U+1FA61 Catrinity
-# Symbols and Pictographs Extended-A
-#symbol_map U+1FA70-U+1FAA8 Catrinity
-# Symbols for Legacy Computing
-symbol_map U+1FB00-U+1FBD3 Catrinity
-
-# ----------------------------------------------------------------------
-# Catrinity Private Use Area
-#  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-# Private Use Area: Gargoyle
-symbol_map U+E5C0-U+E5DF Catrinity
-# Private Use Area: Standard Galactic (used in Minecraft)
-symbol_map U+EB40-U+EB5F Catrinity
-# Private Use Area: Klingon
-symbol_map U+F8D0-U+F8FF Catrinity
-# Supplementary Private Use Area-A: Number Forms Appendix
-# (OMFG "Combining Subscripts" to be used with superscripts)
-symbol_map U+F0600-U+F0609 Catrinity
-# Supplementary Private Use Area-A: Combining Strokes
-symbol_map U+FA750-U+FA75F Catrinity
-# Supplementary Private Use Area-A: Maritime Signal Flags
-symbol_map U+FCB00-U+FCB78 Catrinity
-
-# ======================================================================
-# Flags
-# ----------------------------------------------------------------------
-#symbol_map U+1F1E6-U+1F1FF Catrinity Flags
-#symbol_map U+1F3F3-U+1F3F4 Catrinity Flags
-#symbol_map U+100030-U+100039 Catrinity Flags
-#symbol_map U+100061-U+10007F Catrinity Flags
-
-# ======================================================================
-# Specific Targets
-# ----------------------------------------------------------------------
-# Runic
-#
-# ᚫᛒᚳᛞ ᛖ  ᚠᚷᚹᚽᛄ ᛱᛚᛗᚾᚩ ᛕᚴᚱᛊᛏ ᚢᚺᛣᚣ ᛉ ᚦᛝ ᛟ ᛠᛥ
-#
-# ᚫᛒᚳᛞᛖ ᚠᚷᚹᛁᛳ ᛱᛚᛗᚾᚩ ᛈ ᚴᚱᛋᛏ ᚢᚻᛣᚣ ᛉ ᚦᛝ ᛟ ᛠᛥ
-# ᚫᛒᚳᛞᛖ ᚠᚷᚹᛁᛳ ᛱᛚᛗᚾᚩ ᛈ ᚴᚱᛋᛏ ᚢᚤᚻᛣᚥ ᛉ ᚦᛝ ᛟ ᛠᛥ
-#
-# ᚢᚣᚤᚥ 
-
-# ᚫᛒᚳᛞᛖ
-symbol_map U+16A0-U+16FF JuliaMono Light
-#symbol_map U+16A0-U+16FF Classic Console Neue
-
-# ======================================================================
-# Material Design Icons Desktop
-# https://github.com/Templarian/MaterialDesign/
-# https://github.com/Templarian/MaterialDesign-Font <-- TTF repo
-# file:///home/ptolemarch/.local/share/fonts/MaterialDesign-Font-master/cheatsheet.html
-# ----------------------------------------------------------------------
-# Supplementary Private Use Area-A
-symbol_map U+F0001-U+F05FF Material Design Icons Desktop
-#    NOTE: U+F0600-U+F0609 is the "Combining Superscripts" from Catrinity
-symbol_map U+F060A-U+F1AF0 Material Design Icons Desktop
-
-# ======================================================================
-# Fork Awesome
-# https://github.com/ForkAwesome/Fork-Awesome/tree/master
-# Tux
-symbol_map U+F17C forkawesome 
-# Google "G"
-symbol_map U+F1A0 forkawesome
-# Visa
-symbol_map U+F1F0 forkawesome
-# MasterCard
-symbol_map U+F1F1 forkawesome
-# Discover
-symbol_map U+F1F2 forkawesome
-# American Express
-symbol_map U+F1F3 forkawesome
-# PayPal
-symbol_map U+F1F4 forkawesome
-# Stripe
-symbol_map U+F1F5 forkawesome
-# JCB
-symbol_map U+F24B forkawesome
-# Diners' Club
-symbol_map U+F24C forkawesome
-# Chrome
-symbol_map U+F268 forkawesome
-# Firefox
-symbol_map U+F269 forkawesome
-# Debian
-symbol_map U+F2FF forkawesome
-# GIMP
-symbol_map U+F31B forkawesome
-# AT&T
-symbol_map U+F31E forkawesome
-# Python
-symbol_map U+F322 forkawesome
-# F-Droid
-symbol_map U+F32A forkawesome
-# Perl (onion)
-symbol_map U+F32E forkawesome
-# GNU
-symbol_map U+F34D forkawesome
-# Java
-symbol_map U+F351 forkawesome
-# TeX
-symbol_map U+F35C forkawesome
-
-# ======================================================================
-# Font Logos
-# https://github.com/lukas-w/font-logos
-# (but tweaked to be called fontLogos, for better fontconfig compatibility)
-# Docker
-symbol_map U+F308 fontLogos
-# Gentoo
-symbol_map U+F30D fontLogos
-# Nix
-symbol_map U+F313 fontLogos
-# Raspberry Pi
-symbol_map U+F315 fontLogos
-# Tux
-symbol_map U+F31A fontLogos
-# OpenBSD / OpenSSH
-symbol_map U+F328 fontLogos
-# Pop!OS
-symbol_map U+F32A fontLogos
-# GIMP
-symbol_map U+F338 fontLogos
-# Arduino
-symbol_map U+F34B fontLogos
-# Open Hardware
-symbol_map U+F34F fontLogos
-# Enlightenment
-symbol_map U+F357 fontLogos
-# XMonad
-symbol_map U+F35E fontLogos
-# X.org
-symbol_map U+F369 fontLogos
-# F-Droid
-symbol_map U+F36A fontLogos
-# NeoVim
-symbol_map U+F36F fontLogos
-# Thunderbird
-symbol_map U+F370 fontLogos
-
-# ======================================================================
-# Devicons
-# http://vorillaz.github.io/devicons/
-# https://github.com/vorillaz/devicons
-# Git
-symbol_map U+E602 devicons
-# Android
-symbol_map U+E60E devicons
-# Tux
-symbol_map U+E612 devicons
-# Raspberry Pi
-symbol_map U+E622 devicons
-# HTML 5
-symbol_map U+E636 devicons
-# Java
-symbol_map U+E638 devicons
-# Python
-symbol_map U+E63C devicons
-# Chrome
-symbol_map U+E643 devicons
-# Firefox
-symbol_map U+E645 devicons
-# CSS 3
-symbol_map U+E649 devicons
-# Perl
-symbol_map U+E669 devicons
-# W3C
-symbol_map U+E66C devicons
-# Haskell
-symbol_map U+E677 devicons
-# GNU
-symbol_map U+E679 devicons
-# Debian
-symbol_map U+E67D devicons
-# Mozilla
-symbol_map U+E686 devicons
-
-# ======================================================================
-# Font Awesome
-# media-fonts/fontawesome
-# https://fontawesome.com/
-# Firefox
-symbol_map U+200B Font Awesome 6 Brands
-# Rust
-symbol_map U+E07A Font Awesome 6 Brands
-# HTML 5
-symbol_map U+F13B Font Awesome 6 Brands
-# Android
-symbol_map U+F17B Font Awesome 6 Brands
-# Tux
-symbol_map U+F17C Font Awesome 6 Brands
-# Google "G"
-symbol_map U+F1A0 Font Awesome 6 Brands
-# Git (word, negative)
-symbol_map U+F1D2 Font Awesome 6 Brands
-# Git (word, positive)
-symbol_map U+F1D3 Font Awesome 6 Brands
-# Bluetooth (negative)
-symbol_map U+F293 Font Awesome 6 Brands
-# Bluetooth (positive)
-symbol_map U+F294 Font Awesome 6 Brands
-# AWS
-symbol_map U+F375 Font Awesome 6 Brands
-# CSS 3
-symbol_map U+F38B Font Awesome 6 Brands
-# C (language?)
-symbol_map U+F38C Font Awesome 6 Brands
-# AD&D
-symbol_map U+F38D Font Awesome 6 Brands
-# Google Drive
-symbol_map U+F3AA Font Awesome 6 Brands
-# Python
-symbol_map U+F3E2 Font Awesome 6 Brands
-# Guix
-symbol_map U+F408 Font Awesome 6 Brands
-# Neovim
-symbol_map U+F612 Font Awesome 6 Brands
-# Wizards of the Coast
-symbol_map U+F730 Font Awesome 6 Brands
-# Raspberry Pi
-symbol_map U+F7BB Font Awesome 6 Brands
-# Git
-symbol_map U+F841 Font Awesome 6 Brands
+###### # symbol_map
+###### 
+###### #: E.g. symbol_map U+E0A0-U+E0A3,U+E0C0-U+E0C7 PowerlineSymbols
+###### 
+###### #: Map the specified Unicode codepoints to a particular font. Useful
+###### #: if you need special rendering for some symbols, such as for
+###### #: Powerline. Avoids the need for patched fonts. Each Unicode code
+###### #: point is specified in the form `U+<code point in hexadecimal>`. You
+###### #: can specify multiple code points, separated by commas and ranges
+###### #: separated by hyphens. This option can be specified multiple times.
+###### #: The syntax is::
+###### 
+###### #:     symbol_map codepoints Font Family Name
+###### #symbol_map U+1F535 Noto Color Emoji
+###### #symbol_map U+1F535 Twemoji
+###### #symbol_map U+1F40E Twemoji
+###### #symbol_map U+1F40E Noto Color Emoji
+###### #symbol_map U+1F40E Quivira
+###### 
+###### #symbol_map U+1F600-U+1F606,U+1F609-U+1F60A,U+1F60D,U+1F610,U+1F617-U+1F619,U+1F61B-U+1F61D,U+1F620,U+1F622,U+1F626,U+1F62B-U+1F62E,U+1F633,U+1F636,U+1F642,U+1F644,U+1F681,U+1F686,U+1F68A,U+1F68D,U+1F690-U+1F691,U+1F696-U+1F698,U+1F69A,U+1F69C,U+1F6A2,U+1F6A6,U+1F6AA-U+1F6AD,U+1F6B0,U+1F6B2,U+1F6B4,U+1F6B6,U+1F6BD,U+1F6BF,U+1F6C1,U+1F6CC,U+1F6CE,U+1F6D0,U+1F6D2,U+1F6E1,U+1F6E3,U+1F6EB-U+1F6EC,U+1F6F0,U+1F6FB,U+1F7E0-U+1F7EB,U+1F90D-U+1F90E,U+1F916,U+1F91A,U+1F91D,U+1F923,U+1F929,U+1F941-U+1F944,U+1F94E,U+1F953,U+1F955,U+1F95A,U+1F977,U+1F990,U+1F99B,U+1F9A6,U+1F9B4,U+1F9B7,U+1F9CD,U+1F9E0-U+1F9E1,U+1F9E6,U+1F9E9-U+1F9EA,U+1F9EC-U+1F9ED,U+1F9EF-U+1F9F0,U+1F9F2-U+1F9F3,U+1F9F9,U+1F9FB-U+1F9FC,U+1F9FE,U+1FA79-U+1FA7A,U+1FA91,U+1FA9B,U+1FAB6,U+1FAC1 Font Awesome 6 Free Solid
+###### 
+###### 
+###### # ======================================================================
+###### # Catrinity
+###### # https://catrinity-font.de/
+###### # ----------------------------------------------------------------------
+###### # Basic Latin
+###### #symbol_map U+20-U+7E Catrinity
+###### # Latin-1 Supplement
+###### #symbol_map U+A0-U+FF Catrinity
+###### # Latin Extended-A
+###### #symbol_map U+100-U+17F Catrinity
+###### # Latin Extended-B
+###### #symbol_map U+180-U+24F Catrinity
+###### # IPA Extensions
+###### symbol_map U+250-U+2AF Catrinity
+###### # Spacing Modifier Letters
+###### symbol_map U+2B0-U+2FF Catrinity
+###### # Combining Diacritical Marks
+###### #symbol_map U+300-U+36F Catrinity
+###### # Greek and Coptic
+###### #symbol_map U+370-U+3F6 Catrinity
+###### # Cyrillic
+###### #symbol_map U+400-U+4FF Catrinity
+###### # Cyrillic Supplement
+###### #symbol_map U+500-U+52F Catrinity
+###### # Armenian
+###### #symbol_map U+531-U+58B Catrinity
+###### # Hebrew
+###### #symbol_map U+591-U+5E8 Catrinity
+###### # Arabic (digits)
+###### #symbol_map U+6F0-U+6F9 Catrinity
+###### # Combining Diacritical Marks Extended
+###### #symbol_map U+1AB0-U+1AC0 Catrinity
+###### # Cyrillic Extended-C
+###### #symbol_map U+1C80-U+1C88 Catrinity
+###### # Phonetic Extensions
+###### symbol_map U+1D00-U+1D7F Catrinity
+###### # Phonetic Extensions Supplement
+###### symbol_map U+1D80-U+1DBF Catrinity
+###### # Combining Diacritical Marks Supplement
+###### #symbol_map U+1DC0-U+1DFE Catrinity
+###### # Latin Extended Additional
+###### #symbol_map U+1E00-U+1EFF Catrinity
+###### # Greek Extended
+###### #symbol_map U+1F00-U+1FE8 Catrinity
+###### # General Punctuation
+###### symbol_map U+2000-U+206E Catrinity
+###### # Superscripts and Subscripts
+###### #symbol_map U+2070-U+2099 Catrinity
+###### # Currency Symbols
+###### symbol_map U+20A0-U+20BF Catrinity
+###### # Combining Diacritical Marks for Symbols
+###### #symbol_map U+20D0-U+20F0 Catrinity
+###### # Letterlike Symbols
+###### symbol_map U+2100-U+214F Catrinity
+###### # Number Forms
+###### symbol_map U+2150-U+218B Catrinity
+###### # Arrows
+###### symbol_map U+2190-U+21FF Catrinity
+###### # Mathematical Operators
+###### symbol_map U+2200-U+22FF Catrinity
+###### # Miscellaneous Technical
+###### symbol_map U+2300-U+23FF Catrinity
+###### # Control Pictures
+###### symbol_map U+2400-U+2426 Catrinity
+###### # Optical Character Recognition
+###### symbol_map U+2440-U+244A Catrinity
+###### # Enclosed Alphanumerics
+###### symbol_map U+2460-U+24FF Catrinity
+###### # Box Drawing
+###### symbol_map U+2500-U+257F Catrinity
+###### # Block Elements
+###### symbol_map U+2580-U+259F Catrinity
+###### # Geometric Shapes
+###### symbol_map U+25A0-U+25FF Catrinity
+###### # Miscellaneous Symbols
+###### symbol_map U+2600-U+26FF Catrinity
+###### # Dingbats
+###### symbol_map U+2700-U+27BF Catrinity
+###### # Miscellaneous Mathematical Symbols-A
+###### symbol_map U+27C0-U+27EF Catrinity
+###### # Supplemental Arrows-A
+###### symbol_map U+27F0-U+27FF Catrinity
+###### # Braille Patterns
+###### symbol_map U+2800-U+28FF Catrinity
+###### # Supplemental Arrows-B
+###### symbol_map U+2900-U+297F Catrinity
+###### # Miscellaneous Mathematical Symbols-B
+###### symbol_map U+2980-U+29FF Catrinity
+###### # Supplemental Mathematical Operators
+###### symbol_map U+2A00-U+2AFF Catrinity
+###### # Miscellaneous Symbols and Arrows
+###### symbol_map U+2B00-U+2BFC Catrinity
+###### # Latin Extended-C
+###### #symbol_map U+2C60-U+2C7F Catrinity
+###### # Coptic
+###### #symbol_map U+2C80-U+2CFA Catrinity
+###### # Cyrillic Extended-A
+###### #symbol_map U+2DE0-U+2DFF Catrinity
+###### # Supplemental Punctuation
+###### symbol_map U+2E00-U+2E52 Catrinity
+###### # Ideographic Description Characters
+###### #symbol_map U+2FF0-U+2FFB Catrinity
+###### # CJK Symbols and Punctuation
+###### #symbol_map U+3000-U+303F Catrinity
+###### # Hiragana
+###### #symbol_map U+3041-U+309D Catrinity
+###### # Katakana
+###### #symbol_map U+30A0-U+30FF Catrinity
+###### # Bopomofo
+###### #symbol_map U+3105-U+312F Catrinity
+###### # Hangul Compatibility Jamo
+###### #symbol_map U+3131-U+318E Catrinity
+###### # Kanbun
+###### #symbol_map U+3190-U+319F Catrinity
+###### # Bopomofo Extended
+###### #symbol_map U+31A0-U+31BF Catrinity
+###### # CJK Strokes
+###### #symbol_map U+31C0-U+31E3 Catrinity
+###### # Katakana Phonetic Extensions
+###### #symbol_map U+31F0-U+31FF Catrinity
+###### # Enclosed CJK Letters and Months
+###### #symbol_map U+3200-U+32FE Catrinity
+###### # CJK Compatibility
+###### #symbol_map U+3300-U+33FF Catrinity
+###### # Yijing Hexagram Symbols
+###### symbol_map U+4DC0-U+4DFF Catrinity
+###### # CJK Unified Ideographs
+###### #symbol_map U+4E2D Catrinity
+###### # Cyrillic Extended-B
+###### #symbol_map U+A640-U+A69F Catrinity
+###### # Latin Extended-D
+###### #symbol_map U+A720-U+A7D3 Catrinity
+###### # Latin Extended-E
+###### #symbol_map U+AB30-U+AB6B Catrinity
+###### # Alphabetic Presentation Forms
+###### #symbol_map U+FB00-U+FB39 Catrinity
+###### # Variation Selectors
+###### #symbol_map U+FE00-U+FE0F Catrinity
+###### # Vertical Forms
+###### #symbol_map U+FE10-U+FE19 Catrinity
+###### # Combining Half Marks
+###### #symbol_map U+FE20-U+FE2F Catrinity
+###### # CJK Compatibility Forms
+###### #symbol_map U+FE30-U+FE4F Catrinity
+###### # Small Form Variants
+###### #symbol_map U+FE50-U+FE69 Catrinity
+###### # Halfwidth and Fullwidth Forms
+###### symbol_map U+FF01-U+FFE1 Catrinity
+###### # Specials
+###### #symbol_map U+FFF9-U+FFFD Catrinity
+###### # Aegean Numbers
+###### symbol_map U+10100-U+10138 Catrinity
+###### # Ancient Greek Numbers
+###### symbol_map U+10140-U+1018E Catrinity
+###### # Ancient Symbols
+###### symbol_map U+10190-U+1019D Catrinity
+###### # Phaistos Disc
+###### symbol_map U+101D0-U+101FD Catrinity
+###### # Coptic Epact Numbers
+###### symbol_map U+102E0-U+102FB Catrinity
+###### # Gothic
+###### #symbol_map U+10330-U+1034A Catrinity
+###### # Deseret
+###### #symbol_map U+10400-U+1044F Catrinity
+###### # Egyptian Hieroglyph Format Controls
+###### #symbol_map U+13430-U+13438 Catrinity
+###### # Byzantine Musical Symbols
+###### symbol_map U+1D000-U+1D0F5 Catrinity
+###### # Musical Symbols
+###### symbol_map U+1D100-U+1D1E6 Catrinity
+###### # Ancient Greek Musical Notation
+###### symbol_map U+1D200-U+1D245 Catrinity
+###### # Mayan Numerals
+###### symbol_map U+1D2E0-U+1D2F3 Catrinity
+###### # Tai Xuan Jing Symbols
+###### symbol_map U+1D300-U+1D356 Catrinity
+###### # Counting Rod Numerals
+###### symbol_map U+1D360-U+1D378 Catrinity
+###### # Mathematical Alphanumeric Symbols
+###### symbol_map U+1D400-U+1D7E3 Catrinity
+###### # Mahjong Tiles
+###### symbol_map U+1F000-U+1F02B Catrinity
+###### # Domino Tiles
+###### symbol_map U+1F030-U+1F093 Catrinity
+###### # Playing Cards
+###### symbol_map U+1F0A0-U+1F0F1 Catrinity
+###### # Enclosed Alphanumeric Supplement
+###### symbol_map U+1F100-U+1F1C7 Catrinity
+###### # Enclosed Ideographic Supplement
+###### #symbol_map U+1F200-U+1F23F Catrinity
+###### 
+###### # Miscellaneous Symbols and Pictographs
+###### #symbol_map U+1F300-U+1F5FF Catrinity
+###### symbol_map U+1F300-U+1F5FF Noto Color Emoji
+###### # Emoticons
+###### symbol_map U+1F600-U+1F64F Catrinity
+###### # Ornamental Dingbats
+###### symbol_map U+1F650-U+1F67F Catrinity
+###### # Transport and Map Symbols
+###### symbol_map U+1F680-U+1F6F1 Catrinity
+###### 
+###### # Alchemical Symbols
+###### symbol_map U+1F700-U+1F773 Catrinity
+###### # Geometric Shapes Extended
+###### symbol_map U+1F780-U+1F7E4 Catrinity
+###### # Supplemental Arrows-C
+###### symbol_map U+1F800-U+1F895 Catrinity
+###### # Supplemental Symbols and Pictographs
+###### #symbol_map U+1F900-U+1F9FD Catrinity
+###### # Chess Symbols
+###### symbol_map U+1FA00-U+1FA61 Catrinity
+###### # Symbols and Pictographs Extended-A
+###### #symbol_map U+1FA70-U+1FAA8 Catrinity
+###### # Symbols for Legacy Computing
+###### symbol_map U+1FB00-U+1FBD3 Catrinity
+###### 
+###### # ----------------------------------------------------------------------
+###### # Catrinity Private Use Area
+###### #  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+###### # Private Use Area: Gargoyle
+###### symbol_map U+E5C0-U+E5DF Catrinity
+###### # Private Use Area: Standard Galactic (used in Minecraft)
+###### symbol_map U+EB40-U+EB5F Catrinity
+###### # Private Use Area: Klingon
+###### symbol_map U+F8D0-U+F8FF Catrinity
+###### # Supplementary Private Use Area-A: Number Forms Appendix
+###### # (OMFG "Combining Subscripts" to be used with superscripts)
+###### symbol_map U+F0600-U+F0609 Catrinity
+###### # Supplementary Private Use Area-A: Combining Strokes
+###### symbol_map U+FA750-U+FA75F Catrinity
+###### # Supplementary Private Use Area-A: Maritime Signal Flags
+###### symbol_map U+FCB00-U+FCB78 Catrinity
+###### 
+###### # ======================================================================
+###### # Flags
+###### # ----------------------------------------------------------------------
+###### #symbol_map U+1F1E6-U+1F1FF Catrinity Flags
+###### #symbol_map U+1F3F3-U+1F3F4 Catrinity Flags
+###### #symbol_map U+100030-U+100039 Catrinity Flags
+###### #symbol_map U+100061-U+10007F Catrinity Flags
+###### 
+###### # ======================================================================
+###### # Specific Targets
+###### # ----------------------------------------------------------------------
+###### # Runic
+###### #
+###### # ᚫᛒᚳᛞ ᛖ  ᚠᚷᚹᚽᛄ ᛱᛚᛗᚾᚩ ᛕᚴᚱᛊᛏ ᚢᚺᛣᚣ ᛉ ᚦᛝ ᛟ ᛠᛥ
+###### #
+###### # ᚫᛒᚳᛞᛖ ᚠᚷᚹᛁᛳ ᛱᛚᛗᚾᚩ ᛈ ᚴᚱᛋᛏ ᚢᚻᛣᚣ ᛉ ᚦᛝ ᛟ ᛠᛥ
+###### # ᚫᛒᚳᛞᛖ ᚠᚷᚹᛁᛳ ᛱᛚᛗᚾᚩ ᛈ ᚴᚱᛋᛏ ᚢᚤᚻᛣᚥ ᛉ ᚦᛝ ᛟ ᛠᛥ
+###### #
+###### # ᚢᚣᚤᚥ 
+###### 
+###### # ᚫᛒᚳᛞᛖ
+###### symbol_map U+16A0-U+16FF JuliaMono Light
+###### #symbol_map U+16A0-U+16FF Classic Console Neue
+###### 
+###### # ======================================================================
+###### # Material Design Icons Desktop
+###### # https://github.com/Templarian/MaterialDesign/
+###### # https://github.com/Templarian/MaterialDesign-Font <-- TTF repo
+###### # file:///home/ptolemarch/.local/share/fonts/MaterialDesign-Font-master/cheatsheet.html
+###### # ----------------------------------------------------------------------
+###### # Supplementary Private Use Area-A
+###### symbol_map U+F0001-U+F05FF Material Design Icons Desktop
+###### #    NOTE: U+F0600-U+F0609 is the "Combining Superscripts" from Catrinity
+###### symbol_map U+F060A-U+F1AF0 Material Design Icons Desktop
+###### 
+###### # ======================================================================
+###### # Fork Awesome
+###### # https://github.com/ForkAwesome/Fork-Awesome/tree/master
+###### # Tux
+###### symbol_map U+F17C forkawesome 
+###### # Google "G"
+###### symbol_map U+F1A0 forkawesome
+###### # Visa
+###### symbol_map U+F1F0 forkawesome
+###### # MasterCard
+###### symbol_map U+F1F1 forkawesome
+###### # Discover
+###### symbol_map U+F1F2 forkawesome
+###### # American Express
+###### symbol_map U+F1F3 forkawesome
+###### # PayPal
+###### symbol_map U+F1F4 forkawesome
+###### # Stripe
+###### symbol_map U+F1F5 forkawesome
+###### # JCB
+###### symbol_map U+F24B forkawesome
+###### # Diners' Club
+###### symbol_map U+F24C forkawesome
+###### # Chrome
+###### symbol_map U+F268 forkawesome
+###### # Firefox
+###### symbol_map U+F269 forkawesome
+###### # Debian
+###### symbol_map U+F2FF forkawesome
+###### # GIMP
+###### symbol_map U+F31B forkawesome
+###### # AT&T
+###### symbol_map U+F31E forkawesome
+###### # Python
+###### symbol_map U+F322 forkawesome
+###### # F-Droid
+###### symbol_map U+F32A forkawesome
+###### # Perl (onion)
+###### symbol_map U+F32E forkawesome
+###### # GNU
+###### symbol_map U+F34D forkawesome
+###### # Java
+###### symbol_map U+F351 forkawesome
+###### # TeX
+###### symbol_map U+F35C forkawesome
+###### 
+###### # ======================================================================
+###### # Font Logos
+###### # https://github.com/lukas-w/font-logos
+###### # (but tweaked to be called fontLogos, for better fontconfig compatibility)
+###### # Docker
+###### symbol_map U+F308 fontLogos
+###### # Gentoo
+###### symbol_map U+F30D fontLogos
+###### # Nix
+###### symbol_map U+F313 fontLogos
+###### # Raspberry Pi
+###### symbol_map U+F315 fontLogos
+###### # Tux
+###### symbol_map U+F31A fontLogos
+###### # OpenBSD / OpenSSH
+###### symbol_map U+F328 fontLogos
+###### # Pop!OS
+###### symbol_map U+F32A fontLogos
+###### # GIMP
+###### symbol_map U+F338 fontLogos
+###### # Arduino
+###### symbol_map U+F34B fontLogos
+###### # Open Hardware
+###### symbol_map U+F34F fontLogos
+###### # Enlightenment
+###### symbol_map U+F357 fontLogos
+###### # XMonad
+###### symbol_map U+F35E fontLogos
+###### # X.org
+###### symbol_map U+F369 fontLogos
+###### # F-Droid
+###### symbol_map U+F36A fontLogos
+###### # NeoVim
+###### symbol_map U+F36F fontLogos
+###### # Thunderbird
+###### symbol_map U+F370 fontLogos
+###### 
+###### # ======================================================================
+###### # Devicons
+###### # http://vorillaz.github.io/devicons/
+###### # https://github.com/vorillaz/devicons
+###### # Git
+###### symbol_map U+E602 devicons
+###### # Android
+###### symbol_map U+E60E devicons
+###### # Tux
+###### symbol_map U+E612 devicons
+###### # Raspberry Pi
+###### symbol_map U+E622 devicons
+###### # HTML 5
+###### symbol_map U+E636 devicons
+###### # Java
+###### symbol_map U+E638 devicons
+###### # Python
+###### symbol_map U+E63C devicons
+###### # Chrome
+###### symbol_map U+E643 devicons
+###### # Firefox
+###### symbol_map U+E645 devicons
+###### # CSS 3
+###### symbol_map U+E649 devicons
+###### # Perl
+###### symbol_map U+E669 devicons
+###### # W3C
+###### symbol_map U+E66C devicons
+###### # Haskell
+###### symbol_map U+E677 devicons
+###### # GNU
+###### symbol_map U+E679 devicons
+###### # Debian
+###### symbol_map U+E67D devicons
+###### # Mozilla
+###### symbol_map U+E686 devicons
+###### 
+###### # ======================================================================
+###### # Font Awesome
+###### # media-fonts/fontawesome
+###### # https://fontawesome.com/
+###### # Firefox
+###### symbol_map U+200B Font Awesome 6 Brands
+###### # Rust
+###### symbol_map U+E07A Font Awesome 6 Brands
+###### # HTML 5
+###### symbol_map U+F13B Font Awesome 6 Brands
+###### # Android
+###### symbol_map U+F17B Font Awesome 6 Brands
+###### # Tux
+###### symbol_map U+F17C Font Awesome 6 Brands
+###### # Google "G"
+###### symbol_map U+F1A0 Font Awesome 6 Brands
+###### # Git (word, negative)
+###### symbol_map U+F1D2 Font Awesome 6 Brands
+###### # Git (word, positive)
+###### symbol_map U+F1D3 Font Awesome 6 Brands
+###### # Bluetooth (negative)
+###### symbol_map U+F293 Font Awesome 6 Brands
+###### # Bluetooth (positive)
+###### symbol_map U+F294 Font Awesome 6 Brands
+###### # AWS
+###### symbol_map U+F375 Font Awesome 6 Brands
+###### # CSS 3
+###### symbol_map U+F38B Font Awesome 6 Brands
+###### # C (language?)
+###### symbol_map U+F38C Font Awesome 6 Brands
+###### # AD&D
+###### symbol_map U+F38D Font Awesome 6 Brands
+###### # Google Drive
+###### symbol_map U+F3AA Font Awesome 6 Brands
+###### # Python
+###### symbol_map U+F3E2 Font Awesome 6 Brands
+###### # Guix
+###### symbol_map U+F408 Font Awesome 6 Brands
+###### # Neovim
+###### symbol_map U+F612 Font Awesome 6 Brands
+###### # Wizards of the Coast
+###### symbol_map U+F730 Font Awesome 6 Brands
+###### # Raspberry Pi
+###### symbol_map U+F7BB Font Awesome 6 Brands
+###### # Git
+###### symbol_map U+F841 Font Awesome 6 Brands
 
 # narrow_symbols
 
