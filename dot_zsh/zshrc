@@ -49,6 +49,8 @@ fi
 
 # I like using # in interactive shells
 setopt INTERACTIVE_COMMENTS
+setopt KSH_GLOB  # zshexpn(1)
+setopt EXTENDED_GLOB  # zshexpn(1)
 
 # history
 HISTFILE=~/.zsh/history
