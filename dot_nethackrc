@@ -1,27 +1,14 @@
 # more information:
 #   http://www.nethack.org/v343/Guidebook.html#_TOCentry_42
 #   http://nethackwiki.com/wiki/Options
-#   http://alt.org/nethack/default.nh343rc
+#   https://alt.org/nethack/default.nh366rc
 
-# basic display options
-#OPTIONS=windowtype:tty
-OPTIONS=windowtype:curses
-OPTIONS=color
-OPTIONS=eight_bit_tty
-OPTIONS=silent
-OPTIONS=showrace
-OPTIONS=standout
-OPTIONS=runmode:walk
-OPTIONS=!null
-OPTIONS=timed_delay
-OPTIONS=rawio
-
-# curses options
-#OPTIONS=popup_dialog
-#OPTIONS=mouse_support
-OPTIONS=perm_invent
-OPTIONS=petattr:bi
-OPTIONS=toptenwin
+# names
+OPTIONS=name:Ptolemarch
+OPTIONS=dogname:Indiana
+OPTIONS=catname:Agamemnon
+OPTIONS=horsename:Trigger
+OPTIONS=fruit:Adderall
 
 # game
 OPTIONS=role:Archeologist
@@ -30,12 +17,27 @@ OPTIONS=align:lawful
 OPTIONS=gender:male
 OPTIONS=pettype:dog
 
-# names
-OPTIONS=name:Ptolemarch
-OPTIONS=dogname:Indiana
-OPTIONS=catname:Agamemnon
-OPTIONS=horsename:Trigger
-OPTIONS=fruit:Adderall
+# basic display options
+OPTIONS=color
+OPTIONS=eight_bit_tty
+OPTIONS=silent
+OPTIONS=showrace
+OPTIONS=standout
+OPTIONS=runmode:walk
+OPTIONS=!null
+OPTIONS=timed_delay
+
+# TTY graphics
+#OPTIONS=windowtype:tty
+
+# Curses graphics
+OPTIONS=windowtype:curses
+#OPTIONS=popup_dialog
+#OPTIONS=mouse_support
+OPTIONS=perm_invent
+OPTIONS=petattr:bi
+OPTIONS=toptenwin
+OPTIONS=popup_dialog
 
 ## Always show windows starting from left edge of screen?
 #OPTIONS=win_edge
@@ -116,6 +118,8 @@ OPTION=statushilites:10
 #   dungeon-level time
 #   hunger carrying-capacity condition score
 
+# https://nethackwiki.com/wiki/Status_hilites
+
 OPTION=hilite_status:str/up/red&underline/down/red&inverse/normal
 OPTION=hilite_status:dex/up/green&underline/down/green&inverse/normal
 OPTION=hilite_status:con/up/brown&underline/down/brown&inverse/normal
@@ -123,8 +127,8 @@ OPTION=hilite_status:int/up/blue&underline/down/blue&inverse/normal
 OPTION=hilite_status:wis/up/cyan&underline/down/cyan&inverse/normal
 OPTION=hilite_status:cha/up/magenta&underline/down/magenta&inverse/normal
 
-OPTION=hilite_status:alignment/changed/red&blink/normal
-OPTION=hilite_status:gold/up/orange&underline/down/yellow&inverse/yellow
+OPTION=hilite_status:alignment/changed/red&inverse/normal
+OPTION=hilite_status:gold/up/light-green&underline/down/yellow&inverse/yellow
 
 OPTION=hilite_status:hitpoints/100%/gray
 OPTION=hilite_status:hitpoints/<100%/light-green
@@ -176,14 +180,16 @@ OPTION=hilite_status:time/normal
 
 OPTION=hilite_status:hunger/orange
 OPTION=hilite_status:carrying-capacity/magenta
-OPTION=hilite_status:condition/white&bold
+OPTION=hilite_status:condition/major_troubles/red&bold&inverse
+OPTION=hilite_status:condition/minor_troubles/green&bold&inverse
+OPTION=hilite_status:condition/movement/cyan&bold&inverse
 
 
 # ######################################################################
 #  Map
 # ======================================================================
 
-#OPTIONS=boulder:`
+#OPTIONS=boulder:¤
 OPTIONS=hilite_pet
 OPTIONS=hilite_pile
 OPTIONS=lit_corridor
@@ -211,9 +217,11 @@ OPTIONS=implicit_uncursed
 OPTIONS=menustyle:f
 
 ## Colored menus. Regular expressions allowed.
-# much of this from http://alt.org/nethack/userdata/E/Eidolos/Eidolos.nh343rc
-#              also http://alt.org/nethack/userdata/i/itsblah/itsblah.nh343rc
+# https://nethackwiki.com/wiki/Menucolors
 OPTIONS=menucolors
+# 1. Menu colors apply top to bottom, so later matches win.
+# 2. color & attribute must be specified together;
+# 3. a match that specifies color will clear any applied attribute & vice-versa
 
 # blessed/uncursed/cursed
 MENUCOLOR="^([0-9]+|an?|the) blessed | named.*[ (]blessed([) ]|$)"=green
@@ -224,10 +232,26 @@ MENUCOLOR=" of unholy water|named.*[ (]unholy([) ]|$)"=red
 MENUCOLOR=" \(((weapon in|wielded in other|on (right|left)) hands?|being worn)\)$"=gray&underline
 MENUCOLOR="(^([0-9]+|an?|the) blessed | named.*[ (]blessed[) ]).*\(((weapon in|wielded in other|on (right|left)) hands?|being worn)\)$"=green&underline
 MENUCOLOR="(^([0-9]+|an?|the) cursed | named.*[ (]cursed[) ]).*\(((weapon in|wielded in other|on (right|left)) hands?|being worn)\)$"=red&underline
+
 # b/u/c specifics
 MENUCOLOR="luckstone$"=gray&inverse
 MENUCOLOR="(^([0-9]+|an?) blessed | named.*[ (]blessed[) ])luckstone$"=green&inverse
 MENUCOLOR="(^([0-9]+|an?) cursed | named.*[ (]cursed[) ])luckstone$"=red&inverse
+
+# Specific equipment
+MENUCOLOR=" bullwhip"=light-cyan
+MENUCOLOR=" bullwhip \(((weapon in|wielded in other|on (right|left)) hands?|being worn)\)$"=light-cyan&underline
+MENUCOLOR=" pick-axe "=light-cyan
+MENUCOLOR=" pick-axe \(((weapon in|wielded in other|on (right|left)) hands?|being worn)\)$"=light-cyan&underline
+MENUCOLOR=" mattock "=light-cyan
+MENUCOLOR=" mattock \(((weapon in|wielded in other|on (right|left)) hands?|being worn)\)$"=light-cyan&underline
+
+MENUCOLOR=" uncursed sack"=orange
+MENUCOLOR=" cursed sack"=orange&inverse
+MENUCOLOR=" fedora"=brown
+MENUCOLOR=" fedora \(being worn\)$"=brown&underline
+MENUCOLOR=" leather jacket"=brown
+MENUCOLOR=" leather jacket \(being worn\)$"=brown&underline
 
 # Things that should never go into a bag of holding
 MENUCOLOR=" bag .*holding"=magenta&inverse
@@ -237,7 +261,7 @@ MENUCOLOR=" wand .*cancel"=magenta&inverse
 MENUCOLOR=" !!holding"=magenta&inverse
 MENUCOLOR=" !!cancel"=magenta&inverse
 #raison d'etre
-MENUCOLOR=" Amulet of Yendor named"=magenta&blink
+MENUCOLOR=" Amulet of Yendor named"=yellow&inverse
 # shiny things
 MENUCOLOR=" gold piece"=yellow
 MENUCOLOR=" valuable"=brown
@@ -247,6 +271,11 @@ MENUCOLOR="^([0-9]+|an?) ((un)?cursed |blessed )?(dilithium crystals?|opals?|(ga
 MENUCOLOR="^([0-9]+|an?) ((un)?cursed |blessed )?(diamonds?|rub(y|ies)|sapphires?|black opals?|emeralds?|(jacinth|topaz|aquamarine) stones?)( named .*)?$"=yellow
 # worthless glass
 MENUCOLOR="^([0-9]+|an?) ((un)?cursed |blessed )?worthless pieces? of [a-z ]+ glass$"=black
+
+# unpaid merchandise
+MENUCOLOR="\(unpaid,"=yellow&inverse
+
+
 ## spell failure rates
 MENUCOLOR=" 0%"=white
 MENUCOLOR=" [1-9]%"=cyan
