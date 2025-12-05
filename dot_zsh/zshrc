@@ -37,10 +37,10 @@ source $ZDOTDIR/opt/zsh-defer/zsh-defer.plugin.zsh
 # https://github.com/Tarrasch/zsh-functional
 source $ZDOTDIR/opt/zsh-functional/functional.plugin.zsh
 
+# === basic configuration ==============================================
 source $ZDOTDIR/startup/basic.zsh
 source $ZDOTDIR/startup/identify-machine.zsh
-
-source $ZDOTDIR/startup/set-path.zsh
+source $ZDOTDIR/startup/path.zsh
 
 # color
 if type dircolors > /dev/null 2>&1 ; then
@@ -141,8 +141,8 @@ fi
 export RLWRAP_HOME="$HOME/.rlwrap"
 
 # === iTerm2 ===========================================================
-ITERM2_SI_PATH=$ZDOTDIR/startup/iterm2_shell_integration.zsh
-test -f $ITERM2_SI_PATH && source $ITERM2_SI_PATH;
+#ITERM2_SI_PATH=$ZDOTDIR/startup/iterm2_shell_integration.zsh
+#test -f $ITERM2_SI_PATH && source $ITERM2_SI_PATH;
 
 # === Zsh Help =========================================================
 unalias run-help 2> /dev/null
@@ -212,7 +212,7 @@ zsh-defer source $ZDOTDIR/opt/zsh-autosuggestions/zsh-autosuggestions.zsh
 zsh-defer source $ZDOTDIR/startup/aliases.zsh
 
 # === Zsh Prompt =======================================================
-zsh-defer source $ZDOTDIR/startup/set-prompt.zsh
+zsh-defer source $ZDOTDIR/startup/prompt.zsh
 
 # === Zsh Vi Mode ======================================================
 # https://github.com/jeffreytse/zsh-vi-mode
