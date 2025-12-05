@@ -24,8 +24,9 @@
 #    - system load? 
 #    - (on remote hosts) latency?!? (could this be possible?)
 
-[[ -n $ptolemarch_INCLUDE_set_prompt__ ]] && return 0
-ptolemarch_INCLUDE_set_prompt__=$(date +%s)
+# actually DO want this to be run every time
+#[[ -n $ptolemarch_INCLUDE_set_prompt__ ]] && return 0
+#ptolemarch_INCLUDE_set_prompt__=$(date +%s)
 
 source $ZDOTDIR/startup/basic.zsh
 source $ZDOTDIR/startup/identify-machine.zsh
@@ -42,6 +43,7 @@ parse_git_dirty() {
 }
 
 setopt prompt_subst
+setopt prompt_percent
 
 NEWLINE=$'\n'
 
@@ -49,6 +51,8 @@ autoload -Uz vcs_info # enable vcs_info
 precmd () { vcs_info } # always load before displaying the prompt
 zstyle ':vcs_info:git*' formats ' ↣ (%F{254}%b%F{245})' # format $vcs_info_msg_0_
 
-#PS1='%F{254}%n%F{245} ↣ %F{153}%(5~|%-1~/⋯/%3~|%4~)%F{245}${vcs_info_msg_0_} $(parse_git_dirty)$NEWLINE%F{254}$%f '
+PS1='%F{254}%n%F{245} ↣ %F{153}%(5~|%-1~/⋯/%3~|%4~)%F{245}${vcs_info_msg_0_} $(parse_git_dirty)$NEWLINE%F{254}$%f '
 
 #PS1='%(?..
+
+#PS1='%2(L:big:little)'
