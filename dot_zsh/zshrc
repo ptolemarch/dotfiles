@@ -1,5 +1,8 @@
 #! zsh
 
+# I should take more ideas from here:
+#   https://thevaluable.dev/zsh-install-configure-mouseless/
+
 # startup script order:
 #       /etc/zshenv                     (always)
 #       $ZDOTDIR/.zshenv    RCS
@@ -20,7 +23,7 @@
 # completions configuration questionnaire:
 #       `autoload -Uz compinstall && compinstall`
 
-fpath=($ZDOTDIR/functions $fpath)
+fpath=($ZDOTDIR/functions "${fpath[@]}")
 
 autoload -Uz add-zsh-hook  # && add-zsh-hook (not required; dunno why not)
 
@@ -42,6 +45,9 @@ source $ZDOTDIR/startup/basic.zsh
 source $ZDOTDIR/startup/identify-machine.zsh
 source $ZDOTDIR/startup/path.zsh
 
+# === my own functions =================================================
+
+# === specific configuration ===========================================
 # color
 if type dircolors > /dev/null 2>&1 ; then
     [[ -r ~/.bash/dircolors ]] && eval "$(dircolors -b ~/.bash/dircolors)" || eval "$(dircolors -b)"
@@ -79,6 +85,11 @@ fi
 if [[ -d $HOME/src/vcpkg ]]; then
     export VCPKG_ROOT=$HOME/src/vcpkg
 fi
+
+# === Haskell (GHCup) ==================================================
+# installing GHCup:
+#  curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
+[ -f "/home/ptolemarch/.ghcup/env" ] && . "/home/ptolemarch/.ghcup/env"
 
 # === Raku =============================================================
 export RAKUBREW_HOME="$HOME/.raku/rakubrew"
@@ -152,7 +163,7 @@ alias help=run-help
 
 # === Zsh Completions ==================================================
 # https://github.com/zsh-users/zsh-completions
-fpath=($ZDOTDIR/opt/zsh-completions/src $fpath)
+fpath=($ZDOTDIR/opt/zsh-completions/src "${fpath[@]}")
 autoload -U compinit && compinit
 #zstyle ':completion::complete:*' use-cache 1
 # will the above still use Gentoo's app-shells/gentoo-zsh-completions ?
